@@ -1,0 +1,1399 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Kobutan</name>
+    </assembly>
+    <members>
+        <member name="T:Kobutan.MainForm">
+            <summary>
+            メインフォーム。
+            </summary>
+        </member>
+        <member name="F:Kobutan.MainForm._KobutanSystem">
+            <summary>こぶたんシステム。</summary>
+        </member>
+        <member name="M:Kobutan.MainForm.#ctor">
+            <summary>
+            メインフォームのコンストラクタ。
+            </summary>
+        </member>
+        <member name="M:Kobutan.MainForm.MainForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            メインフォームが読み込まれた際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.MainForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            メインフォームが閉じられる前に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_File_Exit_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ファイル(F)」→「終了(X)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Edit_Load_App_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「編集(V)」→「各種再読み込み(L)」→「アプリケーションの再読み込み(A)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Edit_Load_Serial_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「編集(V)」→「各種再読み込み(L)」→「シリアルポートの再読み込み(P)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Edit_Load_Gamepad_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「編集(V)」→「各種再読み込み(L)」→「ゲームパッドの再読み込み(G)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_View_SelectApp_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「表示(V)」→「アプリケーション選択ウィンドウ(A)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_View_InstanceList_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「表示(V)」→「インスタンスリストウィンドウ(I)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_View_Devices_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「表示(V)」→「デバイスウィンドウ(D)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Tool_TextEditor_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ツール(T)」→「テキストエディタ(T)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Tool_DeviceManager_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ツール(T)」→「デバイスマネージャー(D)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Tool_DeviceAndPrinter_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ツール(T)」→「デバイスとプリンター(P)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Tool_DirectX_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ツール(T)」→「DirectX 診断ツール(X)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Tool_Option_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ツール(T)」→「オプション(O)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Help_Version_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ヘルプ(H)」→「バージョン情報(A)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="M:Kobutan.MainForm.Menu_Help_Debug_Click(System.Object,System.EventArgs)">
+            <summary>
+            メニューバーの「ヘルプ(H)」→「デバッグ用(D)」クリック時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="T:Kobutan.MainForm.WINDOW_MESSAGES">
+            <summary>
+            ウィンドウプロシージャのメッセージ。
+            </summary>
+        </member>
+        <member name="M:Kobutan.MainForm.WndProc(System.Windows.Forms.Message@)">
+            <summary>
+            ウィンドウプロシージャ。
+            </summary>
+            <param name="m">メッセージ。</param>
+        </member>
+        <member name="P:Kobutan.MainForm._MainMenu">
+            <summary>
+            メニューバー。
+            </summary>
+        </member>
+        <member name="P:Kobutan.MainForm._MainStatusBar">
+            <summary>
+            ステータスバー。
+            </summary>
+        </member>
+        <member name="F:Kobutan.MainForm.components">
+            <summary>
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:Kobutan.MainForm.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:Kobutan.MainForm.InitializeComponent">
+            <summary>
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:Kobutan.Management.ApplicationManager">
+            <summary>
+            アプリケーション管理。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._KobutanSystem">
+            <summary>こぶたんシステム。</summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._AssemblyDictionary">
+            <summary>アセンブリ情報の辞書。</summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._IconDictionary">
+            <summary>アイコン辞書。</summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._Watcher">
+            <summary>ファイル監視。</summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._RobotKindNames">
+            <summary>ロボットの種類ごとの名前。</summary>
+        </member>
+        <member name="P:Kobutan.Management.ApplicationManager.AppList">
+            <summary>
+            アプリケーションリスト。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Management.ApplicationManager.UserLibList">
+            <summary>
+            ユーザライブラリリスト。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Management.ApplicationManager.AppFolderPath">
+            <summary>
+            アプリケーションフォルダのパス。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._AppFolderPath">
+            <summary>アプリケーションフォルダのパス。</summary>
+        </member>
+        <member name="P:Kobutan.Management.ApplicationManager.UserLibFolderPath">
+            <summary>
+            ユーザライブラリフォルダのパス。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._UserLibFolderPath">
+            <summary>ユーザライブラリフォルダのパス。</summary>
+        </member>
+        <member name="P:Kobutan.Management.ApplicationManager.TempFolderPath">
+            <summary>
+            一時フォルダのパス。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.ApplicationManager._TempFolderPath">
+            <summary>一時フォルダのパス。</summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.#ctor">
+            <summary>
+            アプリケーション管理。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.UpdateAppList">
+            <summary>
+            アプリケーションリストの更新。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.LoadUserLib">
+            <summary>
+            ユーザライブラリのロード。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.DeleteAllTempFiles">
+            <summary>
+            全ての一時ファイルの削除。
+            このメソッドは一時ファイル読み込み前(こぶたん開始直後等)でしか使えない。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.StartWatchingAppFolder">
+            <summary>
+            アプリケーションフォルダの監視を開始する。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.StopWatchingAppFolder">
+            <summary>
+            アプリケーションフォルダの監視を停止する。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.GetRobotKindName(KobutanLib.RobotKind)">
+            <summary>
+            ロボットの種類に応じた名前を取得。
+            </summary>
+            <param name="robotKind">ロボットの種類。</param>
+            <returns>名前。</returns>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.GetIconInfo(System.String)">
+            <summary>
+            指定した名前のアイコンを取得。
+            </summary>
+            <param name="iconName">アイコンの名前。</param>
+            <returns>アイコン情報。</returns>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.SetIconInfo(System.String,KobutanLib.Management.IconInfo)">
+            <summary>
+            指定した名前のアイコンを設定。
+            </summary>
+            <param name="iconName">アイコンの名前。</param>
+            <param name="iconInfo">アイコン情報。</param>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.CreateTempFiles">
+            <summary>
+            アプリケーションDLLを一時ファイルとしてコピーする。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.RewriteAssemblyFile(System.String,System.String)">
+            <summary>
+            アセンブリファイルを書き換える。
+            </summary>
+            <param name="fileName">ファイル名。</param>
+            <param name="datetimeText">日時のテキスト。</param>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.LoadApps">
+            <summary>
+            アプリケーションのロードとリスト更新。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.RegisterIcons(System.Reflection.Assembly)">
+            <summary>
+            アイコンの登録。
+            </summary>
+            <param name="assembly">アイコン登録を行うアセンブリ。</param>
+        </member>
+        <member name="E:Kobutan.Management.ApplicationManager.AppListUpdated">
+            <summary>
+            アプリケーションリストの更新時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.OnAppListUpdated(KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            アプリケーションリストの更新時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.KobutanLib#Management#IManagerCommon#SetKobutanSystem(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            こぶたんシステム受け渡し用。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの参照。</param>
+        </member>
+        <member name="M:Kobutan.Management.ApplicationManager.KobutanLib#Management#IManagerCommon#FinalizeManager">
+            <summary>
+            マネージャの終了処理。
+            </summary>
+        </member>
+        <member name="T:Kobutan.Management.CommunicationManager">
+            <summary>
+            通信管理。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.CommunicationManager._KobutanSystem">
+            <summary>こぶたんシステム。</summary>
+        </member>
+        <member name="F:Kobutan.Management.CommunicationManager._CommunicationKindNames">
+            <summary>通信の種類ごとの名前。</summary>
+        </member>
+        <member name="F:Kobutan.Management.CommunicationManager.LocalIPAddress">
+            <summary>ローカルIPアドレス。</summary>
+        </member>
+        <member name="P:Kobutan.Management.CommunicationManager.SerialPortNames">
+            <summary>
+            利用可能なシリアルポート名の一覧。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Management.CommunicationManager.DefaultTCPSettingText">
+            <summary>
+            デフォルトのTCP設定テキスト。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Management.CommunicationManager.DefaultUDPSettingText">
+            <summary>
+            デフォルトのUDP設定テキスト。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Management.CommunicationManager.AcceptedTCPCommunications">
+            <summary>
+            サーバで受け入れたTCP通信の一覧。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.CommunicationManager.#ctor">
+            <summary>
+            通信管理。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.CommunicationManager.UpdateSerialPortNames">
+            <summary>
+            シリアルポート名の一覧を更新する。
+            </summary>
+            <returns>シリアルポート名一覧。</returns>
+        </member>
+        <member name="M:Kobutan.Management.CommunicationManager.GetCommunicationKindName(KobutanLib.Management.CommunicationKind)">
+            <summary>
+            通信の種類に応じた名前を取得。
+            </summary>
+            <param name="communicationKind">通信の種類。</param>
+            <returns>名前。</returns>
+        </member>
+        <member name="M:Kobutan.Management.CommunicationManager.CreateCommunication(KobutanLib.Management.CommunicationSetting)">
+            <summary>
+            通信設定を基に通信クラスのインスタンスを生成する。
+            </summary>
+            <param name="setting">通信設定。</param>
+            <returns>通信クラスのインスタンス。</returns>
+        </member>
+        <member name="E:Kobutan.Management.CommunicationManager.SerialPortNamesUpdated">
+            <summary>
+            シリアルポート名一覧の更新時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.CommunicationManager.OnSerialPortNamesUpdated(KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            シリアルポート名一覧の更新時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.Management.CommunicationManager.KobutanLib#Management#IManagerCommon#SetKobutanSystem(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            こぶたんシステム受け渡し用。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの参照。</param>
+        </member>
+        <member name="M:Kobutan.Management.CommunicationManager.KobutanLib#Management#IManagerCommon#FinalizeManager">
+            <summary>
+            マネージャの終了処理。
+            </summary>
+        </member>
+        <member name="T:Kobutan.Management.DeviceManager">
+            <summary>
+            デバイス管理。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.DeviceManager._KobutanSystem">
+            <summary>こぶたんシステム。</summary>
+        </member>
+        <member name="F:Kobutan.Management.DeviceManager._UpdatingDeviceStateTask">
+            <summary>デバイスの状態更新のためのタスク。</summary>
+        </member>
+        <member name="F:Kobutan.Management.DeviceManager._UpdatingDeviceStateTaskLoop">
+            <summary>デバイスの状態更新のためのタスクのループフラグ。</summary>
+        </member>
+        <member name="F:Kobutan.Management.DeviceManager._UpdatingDirectInputFlag">
+            <summary>Direct Input 更新フラグ。</summary>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.#ctor">
+            <summary>
+            デバイス管理。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.StartDirectInputManager">
+            <summary>
+            Direct Input マネージャを開始する。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.StopDirectInputManager">
+            <summary>
+            Direct Input マネージャを停止する。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.UpdateDeviceList">
+            <summary>
+            デバイス一覧のアップデート。
+            </summary>
+        </member>
+        <member name="E:Kobutan.Management.DeviceManager.DeviceAttachmentStateChanged">
+            <summary>
+            デバイスの接続状態が変化した際に発行されるイベント。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.OnDeviceAttachmentStateChanged(KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            デバイスの接続状態が変化した際のアクション。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="E:Kobutan.Management.DeviceManager.DeviceListUpdated">
+            <summary>
+            デバイス一覧が更新された際に発行されるイベント。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.OnDeviceListUpdated(KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            デバイス一覧が更新された際のアクション。
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.DeviceManager_DeviceAttachmentStateChanged(System.Object,KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            デバイスの接続状態が変化した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.KobutanLib#Management#IManagerCommon#SetKobutanSystem(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            こぶたんシステム受け渡し用。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの参照。</param>
+        </member>
+        <member name="M:Kobutan.Management.DeviceManager.KobutanLib#Management#IManagerCommon#FinalizeManager">
+            <summary>
+            マネージャの終了処理。
+            </summary>
+        </member>
+        <member name="T:Kobutan.Management.FormManager">
+            <summary>
+            フォーム管理。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.FormManager._KobutanSystem">
+            <summary>こぶたんシステム。</summary>
+        </member>
+        <member name="F:Kobutan.Management.FormManager._SelectAppForm">
+            <summary>アプリケーション選択のMDIウィンドウ。</summary>
+        </member>
+        <member name="F:Kobutan.Management.FormManager._InstanceListForm">
+            <summary>インスタンスリストのMDIウィンドウ。</summary>
+        </member>
+        <member name="F:Kobutan.Management.FormManager._DeviceForm">
+            <summary>デバイスMDIウィンドウ。</summary>
+        </member>
+        <member name="F:Kobutan.Management.FormManager._DebugForm">
+            <summary>デバッグ用のMDIウィンドウ。</summary>
+        </member>
+        <member name="F:Kobutan.Management.FormManager._OtherForms">
+            <summary>その他のMDIウィンドウ。</summary>
+        </member>
+        <member name="F:Kobutan.Management.FormManager._MDIAppInstanceForms">
+            <summary>アプリケーションインスタンス用のMDIウィンドウ。</summary>
+        </member>
+        <member name="P:Kobutan.Management.FormManager.MainForm">
+            <summary>
+            メインフォーム。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Management.FormManager.UIThread">
+            <summary>
+            UIスレッド。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Management.FormManager.AutoDestroyInstanceFormFlag">
+            <summary>
+            フォームを閉じるときに、自動でインスタンスを破棄するか決定するフラグ。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.#ctor(System.Windows.Forms.Form)">
+            <summary>
+            フォーム管理。
+            </summary>
+            <param name="mainForm">メインフォーム。</param>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.ShowSelectAppForm">
+            <summary>
+            アプリケーション選択フォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.ShowInstanceListForm">
+            <summary>
+            インスタンスリストフォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.ShowDeviceForm">
+            <summary>
+            インスタンスリストフォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.ShowDebugForm">
+            <summary>
+            デバッグフォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.ShowOthreForm(System.Type)">
+            <summary>
+            その他フォームを開く。
+            </summary>
+            <param name="type">開くフォームの型情報。</param>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.ShowAppInstanceForm(KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーションインスタンス用のMDIウィンドウを生成する。
+            </summary>
+            <param name="app">アプリケーションインスタンス。</param>
+            <returns>対応するフォーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.GetAppInstanceForm(KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーションインスタンス用のMDIウィンドウを取得する。
+            </summary>
+            <param name="app">アプリケーションインスタンス。</param>
+            <returns>対応するフォーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.SetMdiMinimizedEventHandler(System.Windows.Forms.Form)">
+            <summary>
+            MDIフォームの最小化時のイベントハンドラを設定する。
+            </summary>
+            <param name="form">MDIフォーム</param>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.KobutanLib#Management#IManagerCommon#SetKobutanSystem(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            こぶたんシステム受け渡し用。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの参照。</param>
+        </member>
+        <member name="M:Kobutan.Management.FormManager.KobutanLib#Management#IManagerCommon#FinalizeManager">
+            <summary>
+            マネージャの終了処理。
+            </summary>
+        </member>
+        <member name="T:Kobutan.Management.FormManager.CloseCancelException">
+            <summary>フォームクローズキャンセル時の例外。</summary>
+        </member>
+        <member name="T:Kobutan.Management.InstanceManager">
+            <summary>
+            インスタンス管理。
+            </summary>
+        </member>
+        <member name="F:Kobutan.Management.InstanceManager._KobutanSystem">
+            <summary>こぶたんシステム。</summary>
+        </member>
+        <member name="F:Kobutan.Management.InstanceManager._InstanceDistionary">
+            <summary>インスタンス辞書。</summary>
+        </member>
+        <member name="F:Kobutan.Management.InstanceManager._SyncInstances">
+            <summary>インスタンス群に対する操作のための同期。</summary>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.#ctor">
+            <summary>
+            インスタンス管理。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.GetInstanceList(System.String)">
+            <summary>
+            指定したアプリケーション名のインスタンスリストを取得。
+            </summary>
+            <param name="appFullName">アプリケーションのフルネーム。</param>
+            <returns>インスタンスリスト。</returns>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.GetInstance(System.String)">
+            <summary>
+            指定したインスタンス名のアプリケーションインスタンスを取得。
+            </summary>
+            <param name="instanceName">インスタンス名。</param>
+            <returns>アプリケーションのインスタンス。</returns>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.GetInstantiatedAppNames">
+            <summary>
+            インスタンス化済みのアプリケーション名を取得。
+            </summary>
+            <returns>アプリケーションのフルネーム。</returns>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.GetDefaultInstanceName(KobutanLib.Management.AppInfo)">
+            <summary>
+            アプリケーションに対するデフォルトのインスタンス名を取得。
+            </summary>
+            <param name="appInfo">アプリケーション情報。</param>
+            <returns>デフォルトのインスタンス名。</returns>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.CreateApp(KobutanLib.Management.InstanceInfo)">
+            <summary>
+            アプリケーションのインスタンス化を行い、リストに追加する。
+            </summary>
+            <param name="instanceInfo">インスタンス情報。</param>
+            <returns>アプリケーションのインスタンス。</returns>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.DestroyApp(KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーションのインスタンスを破棄し、リストから外す。
+            </summary>
+            <param name="app">アプリケーションのインスタンス。</param>
+        </member>
+        <member name="E:Kobutan.Management.InstanceManager.AppCreated">
+            <summary>
+            アプリケーションのインスタンス化後に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.OnAppCreated(KobutanLib.Management.AppEventArgs)">
+            <summary>
+            アプリケーションのインスタンス化後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:Kobutan.Management.InstanceManager.AppDestroying">
+            <summary>
+            アプリケーションのインスタンスの破棄前に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.OnAppDestroying(KobutanLib.Management.AppEventArgs)">
+            <summary>
+            アプリケーションのインスタンスの破棄前のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.KobutanLib#Management#IManagerCommon#SetKobutanSystem(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            こぶたんシステム受け渡し用。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの参照。</param>
+        </member>
+        <member name="M:Kobutan.Management.InstanceManager.KobutanLib#Management#IManagerCommon#FinalizeManager">
+            <summary>
+            マネージャの終了処理。
+            </summary>
+        </member>
+        <member name="M:Kobutan.Program.Main">
+            <summary>
+            アプリケーションのメイン エントリ ポイントです。
+            </summary>
+        </member>
+        <member name="T:Kobutan.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.Culture">
+            <summary>
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.CommunicationNoneName">
+            <summary>
+              None に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.CommunicationSerialName">
+            <summary>
+              Serial Communication に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.CommunicationTCPName">
+            <summary>
+              TCP/IP に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.CommunicationUDPName">
+            <summary>
+              UDP/IP に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ConfigIcon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ConfigImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ConsoleIcon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ConsoleImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.DeviceManagerImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.DevicePrinterImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.dxdiagImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ErrorMessageTitle">
+            <summary>
+              Error に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.GamepadIcon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.GamepadImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.KobutanAppICon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.KobutanAppImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.KobutanAppSImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.KobutanICon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.LogoImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.OpenFileIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.RedoIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.SaveIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ServerIcon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.ServerImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.UndoIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.WindowListIcon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:Kobutan.Properties.Resources.WindowListImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.MDIAppInstanceForm">
+            <summary>
+            アプリケーションインスタンス用のフォーム。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIAppInstanceForm._KobutanApp">
+            <summary>
+            アプリケーション。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIAppInstanceForm._AppScreens">
+            <summary>
+            アプリケーション画面。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIAppInstanceForm._FirstSelecteNode">
+            <summary>
+            初めに選択されるノード。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIAppInstanceForm._CurrentScreen">
+            <summary>
+            現在の画面。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm.#ctor">
+            <summary>
+            アプリケーションインスタンス用のフォーム。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm.#ctor(System.Windows.Forms.Form,KobutanLib.Management.KobutanSystem,KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーションインスタンス用のフォーム。
+            </summary>
+            <param name="parent">MDIウィンドウの親となるフォーム。</param>
+            <param name="kobutanSystem">こぶたんシステムにアクセスするためのインターフェースの集合。</param>
+            <param name="app">アプリケーション。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm.MDIAppInstanceForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            フォームがロードされた際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm._MenuTreeView_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            ノード選択が変化した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm.InitializeScreens">
+            <summary>
+            画面初期化
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm.FinalizeForm">
+            <summary>
+            フォームを閉じる際の後始末。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIAppInstanceForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIAppInstanceForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.MDIBaseForm">
+            <summary>
+            MDIウィンドウとなるフォームのベースクラス。
+            </summary>
+        </member>
+        <member name="P:Kobutan.SubForms.MDIBaseForm.KobutanSystem">
+            <summary>
+            こぶたんシステムにアクセスするためのインターフェースの集合。
+            </summary>
+        </member>
+        <member name="P:Kobutan.SubForms.MDIBaseForm.StatusLabel">
+            <summary>
+            ステータスバーのためのラベル。
+            </summary>
+        </member>
+        <member name="P:Kobutan.SubForms.MDIBaseForm.CloseCancelFlag">
+            <summary>
+            フォームを閉じるのをキャンセルされたフラグ。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIBaseForm.#ctor">
+            <summary>
+            MDIウィンドウとなるフォームのベースクラス。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIBaseForm.#ctor(System.Windows.Forms.Form,KobutanLib.Management.KobutanSystem)">
+            <summary>
+            MDIウィンドウとなるフォームのベースクラス。
+            </summary>
+            <param name="parent">MDIウィンドウの親となるフォーム。</param>
+            <param name="kobutanSystem">こぶたんシステムにアクセスするためのインターフェースの集合。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIBaseForm.MDIBaseForm_FormClosing(System.Object,System.Windows.Forms.FormClosingEventArgs)">
+            <summary>
+            フォームを閉じる直前に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIBaseForm.FinalizeForm">
+            <summary>
+            フォームを閉じる際の後始末。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIBaseForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIBaseForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIBaseForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.MDIDebugForm">
+            <summary>
+            デバッグ用フォーム
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDebugForm.#ctor">
+            <summary>
+            デバッグ用
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDebugForm.#ctor(System.Windows.Forms.Form,KobutanLib.Management.KobutanSystem)">
+            <summary>
+            デバッグ用
+            </summary>
+            <param name="parent">親フォーム</param>
+            <param name="kobutanSystem">こぶたんシステム。</param>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIDebugForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDebugForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDebugForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.MDIDeviceForm">
+            <summary>
+            デバイスフォーム。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIDeviceForm._GamepadNode">
+            <summary>ゲームパッドの項目。</summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDeviceForm.#ctor">
+            <summary>
+            デバイスフォーム。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDeviceForm.#ctor(System.Windows.Forms.Form,KobutanLib.Management.KobutanSystem)">
+            <summary>
+            デバイスフォーム。
+            </summary>
+            <param name="parent">MDIウィンドウの親となるフォーム。</param>
+            <param name="kobutanSystem">こぶたんシステムにアクセスするためのインターフェースの集合。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDeviceForm.DeviceManager_DeviceListUpdated(System.Object,KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            デバイス一覧が更新された際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDeviceForm.FinalizeForm">
+            <summary>
+            フォームを閉じる際の後始末。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIDeviceForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDeviceForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIDeviceForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.MDIInstanceListForm">
+            <summary>
+            インスタンスリストフォーム。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.#ctor">
+            <summary>
+            インスタンスリストフォーム。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.#ctor(System.Windows.Forms.Form,KobutanLib.Management.KobutanSystem)">
+            <summary>
+            インスタンスリストフォーム。
+            </summary>
+            <param name="parent">MDIウィンドウの親となるフォーム。</param>
+            <param name="kobutanSystem">こぶたんシステムにアクセスするためのインターフェースの集合。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.InstanceManager_AppCreated(System.Object,KobutanLib.Management.AppEventArgs)">
+            <summary>
+            アプリケーションが生成された際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.InstanceManager_AppDestroying(System.Object,KobutanLib.Management.AppEventArgs)">
+            <summary>
+            アプリケーションが破棄される前に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.MDIInstanceListForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            フォームがロードされた際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm._ContextMenuStrip_Opening(System.Object,System.ComponentModel.CancelEventArgs)">
+            <summary>
+            項目を右クリックしてコンテキストメニューを表示する際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm._ContextMenu_ShowForm_Click(System.Object,System.EventArgs)">
+            <summary>
+            項目を右クリックして「ウィンドウの表示(V)」をクリックした際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm._ContextMenu_Execution_Click(System.Object,System.EventArgs)">
+            <summary>
+            項目を右クリックして「実行(E)」をクリックした際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm._ContextMenu_Stopping_Click(System.Object,System.EventArgs)">
+            <summary>
+            項目を右クリックして「実行(E)」をクリックした際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm._ContextMenu_Exit_Click(System.Object,System.EventArgs)">
+            <summary>
+            項目を右クリックして「終了(X)」をクリックした際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.GetTargetInstances(System.Windows.Forms.TreeNode)">
+            <summary>
+            操作対象となるインスタンスを取得。
+            </summary>
+            <param name="selectedNode">選ばれたノード。</param>
+            <returns>操作対象となるインスタンス</returns>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.FinalizeForm">
+            <summary>
+            フォームを閉じる際の後始末。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDIInstanceListForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDIInstanceListForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.MDISelectAppForm">
+            <summary>
+            アプリケーション選択フォーム。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDISelectAppForm._LoadedApps">
+            <summary>ロードしたアプリケーション。</summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.#ctor">
+            <summary>
+            アプリケーション選択フォーム。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.#ctor(System.Windows.Forms.Form,KobutanLib.Management.KobutanSystem)">
+            <summary>
+            アプリケーション選択フォーム。
+            </summary>
+            <param name="parent">MDIウィンドウの親となるフォーム。</param>
+            <param name="kobutanSystem">こぶたんシステムにアクセスするためのインターフェースの集合。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.ApplicationManager_AppListUpdated(System.Object,KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            アプリケーション一覧のアップデート後に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.CommunicationManager_SerialPortNamesUpdated(System.Object,KobutanLib.Management.KobutanSystemEventArgs)">
+            <summary>
+            シリアルポート一覧更新時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.InstanceManager_AppCreated(System.Object,KobutanLib.Management.AppEventArgs)">
+            <summary>
+            アプリケーションのインスタンス生成時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.InstanceManager_AppDestroying(System.Object,KobutanLib.Management.AppEventArgs)">
+            <summary>
+            アプリケーションのインスタンス破棄前に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.MDISelectAppForm_Load(System.Object,System.EventArgs)">
+            <summary>
+            フォームがロードされた際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.MDISelectAppForm_VisibleChanged(System.Object,System.EventArgs)">
+            <summary>
+            フォームの可視性が変化した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm._AppTreeView_AfterSelect(System.Object,System.Windows.Forms.TreeViewEventArgs)">
+            <summary>
+            ツリービューで選択しているアイテムが変化した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm._TargetRobotComboBox_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            対象ロボットのコンボボックスで選択しているアイテムが変化した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm._CommunicationComboBox_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            通信方法のコンボボックスで選択しているアイテムが変化した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm._LaunchingButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            実行ボタンが押された際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.GetSelectAppInfo">
+            <summary>
+            選択中のアプリ情報を返す。
+            </summary>
+            <returns>アプリ情報</returns>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.FinalizeForm">
+            <summary>
+            フォームを閉じる際の後始末。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.MDISelectAppForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDISelectAppForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.MDITextEditorForm">
+            <summary>
+            テキストエディタ。
+            </summary>
+        </member>
+        <member name="P:Kobutan.SubForms.MDITextEditorForm.FilePath">
+            <summary>
+            ファイルパス。
+            </summary>
+        </member>
+        <member name="P:Kobutan.SubForms.MDITextEditorForm.IsUpdated">
+            <summary>
+            ファイル更新されているか。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDITextEditorForm.#ctor">
+            <summary>
+            テキストエディタ。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDITextEditorForm.#ctor(System.Windows.Forms.Form,KobutanLib.Management.KobutanSystem)">
+            <summary>
+            テキストエディタ。
+            </summary>
+            <param name="parent">親フォーム</param>
+            <param name="kobutanSystem">こぶたんシステム。</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDITextEditorForm.OpenFile">
+            <summary>
+            ファイルを開き、テキストエディタに反映する。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDITextEditorForm.SaveFile">
+            <summary>
+            テキストエディタの内容をファイルに保存する。
+            </summary>
+            <returns>保存が完了したかどうか。</returns>
+        </member>
+        <member name="F:Kobutan.SubForms.MDITextEditorForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.MDITextEditorForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.MDITextEditorForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.OptionForm">
+            <summary>
+            設定変更のためのフォーム。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.OptionForm.#ctor">
+            <summary>
+            設定変更のためのフォーム。
+            </summary>
+        </member>
+        <member name="F:Kobutan.SubForms.OptionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.OptionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.OptionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:Kobutan.SubForms.VersionForm">
+            <summary>
+            バージョン情報を表示するフォーム。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.VersionForm.#ctor">
+            <summary>
+            バージョン情報を表示するフォームのコンストラクタ。
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.VersionForm._OKButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            OKボタンが押されたときに実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元</param>
+            <param name="e">イベント引数</param>
+        </member>
+        <member name="F:Kobutan.SubForms.VersionForm.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:Kobutan.SubForms.VersionForm.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:Kobutan.SubForms.VersionForm.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

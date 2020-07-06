@@ -1,0 +1,519 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KobutanLib.COP</name>
+    </assembly>
+    <members>
+        <member name="T:KobutanLib.COP.BaseLayer">
+            <summary>
+            ベースレイヤ定義のために継承すべきメタクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.BaseLayer.BaseMethods">
+            <summary>
+            実際のベースメソッドの情報を取得するための辞書。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.BaseLayer.#ctor">
+            <summary>
+            ベースレイヤ定義のために継承すべきメタクラス。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.COP.COPApp">
+            <summary>
+            COP機能付きのアプリケーションクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPApp.ContextRegionName">
+            <summary>
+            コンテキスト範囲名。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.COPApp._ContextRegionName">
+            <summary>コンテキスト範囲名。</summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPApp.LayerList">
+            <summary>
+            レイヤリスト。初期化時にレイヤを登録すること。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPApp.COP">
+            <summary>
+            COP機能の利用。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.COPApp.#ctor(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            COP機能付きのアプリケーションクラス。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPApp.OnAppInitialized(System.EventArgs)">
+            <summary>
+            アプリケーション初期化終了時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPApp.OnAppFinalized(System.EventArgs)">
+            <summary>
+            アプリケーション終了処理後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPApp.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.COP.COPRobotApp">
+            <summary>
+            COP機能付きのロボットアプリケーションクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPRobotApp.ContextRegionName">
+            <summary>
+            コンテキスト範囲名。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.COPRobotApp._ContextRegionName">
+            <summary>コンテキスト範囲名。</summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPRobotApp.LayerList">
+            <summary>
+            レイヤリスト。初期化時にレイヤを登録すること。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPRobotApp.COP">
+            <summary>
+            COP機能の利用。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.COPRobotApp.#ctor(KobutanLib.Management.KobutanSystem,KobutanLib.Robots.RobotController)">
+            <summary>
+            COP機能付きのロボットアプリケーションクラス。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+            <param name="robot">ロボット操作のためのオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPRobotApp.OnAppInitialized(System.EventArgs)">
+            <summary>
+            アプリケーション初期化終了時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPRobotApp.OnAppFinalized(System.EventArgs)">
+            <summary>
+            アプリケーション終了処理後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPRobotApp.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.COP.COPCreate2App">
+            <summary>
+            COP機能付きのロボットアプリケーションクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPCreate2App.ContextRegionName">
+            <summary>
+            コンテキスト範囲名。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.COPCreate2App._ContextRegionName">
+            <summary>コンテキスト範囲名。</summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPCreate2App.LayerList">
+            <summary>
+            レイヤリスト。初期化時にレイヤを登録すること。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPCreate2App.COP">
+            <summary>
+            COP機能の利用。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.COPCreate2App.#ctor(KobutanLib.Management.KobutanSystem,KobutanLib.Robots.RobotController)">
+            <summary>
+            COP機能付きのロボットアプリケーションクラス。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+            <param name="robot">ロボット操作のためのオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPCreate2App.OnAppInitialized(System.EventArgs)">
+            <summary>
+            アプリケーション初期化終了時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPCreate2App.OnAppFinalized(System.EventArgs)">
+            <summary>
+            アプリケーション終了処理後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPCreate2App.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.COP.COPManager">
+            <summary>
+            COPマネージャ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPManager.Instance">
+            <summary>
+            COPManagerのシングルトンインスタンス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.COPManager._Instance">
+            <summary>COPManagerのシングルトンインスタンス。</summary>
+        </member>
+        <member name="F:KobutanLib.COP.COPManager._ContextRegions">
+            <summary>
+            ContextRegionの辞書。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.COPManager.Item(System.String)">
+            <summary>
+            コンテキストの影響範囲を名前で指定する。
+            </summary>
+            <param name="name">コンテキストの影響範囲の名前</param>
+            <returns>コンテキストの影響範囲。</returns>
+        </member>
+        <member name="M:KobutanLib.COP.COPManager.#ctor">
+            <summary>
+            COPマネージャ。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.COPManager.AddContextRegion(System.String,KobutanLib.COP.LayerList)">
+            <summary>
+            コンテキスト影響範囲の追加。
+            </summary>
+            <param name="name">コンテキスト影響範囲の名前。</param>
+            <param name="layerList">レイヤリスト。</param>
+        </member>
+        <member name="M:KobutanLib.COP.COPManager.RemoveContextRegion(System.String)">
+            <summary>
+            コンテキスト影響範囲の削除。
+            </summary>
+            <param name="name">コンテキスト影響範囲の名前。</param>
+        </member>
+        <member name="T:KobutanLib.COP.ContextRegion">
+            <summary>
+            コンテキストの影響範囲。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.ContextRegion._MethodDispatcher">
+            <summary>
+            メソッドディスパッチャ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.ContextRegion.Name">
+            <summary>
+            影響範囲を識別するための名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.ContextRegion.LayerList">
+            <summary>
+            レイヤリスト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.ContextRegion.LayerActivater">
+            <summary>
+            レイヤアクティベータ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.ContextRegion.LayerdObjectCreater">
+            <summary>
+            レイヤードオブジェクトクリエータ。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.ContextRegion.#ctor(System.String,KobutanLib.COP.LayerList)">
+            <summary>
+            コンテキストの影響範囲。
+            </summary>
+            <param name="name">影響範囲を識別するための名前。</param>
+            <param name="layerList">レイヤリスト。</param>
+        </member>
+        <member name="T:KobutanLib.COP.Layer">
+            <summary>
+            レイヤ定義のために継承すべきメタクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.Layer.ID">
+            <summary>
+            ID。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.Layer.Name">
+            <summary>
+            名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.Layer.FullName">
+            <summary>
+            名前(名前空間付き)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.Layer.State">
+            <summary>
+            レイヤの状態。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.Layer.RegisterdIndex">
+            <summary>
+            リストに登録された順番。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.Layer.#ctor(System.UInt32)">
+            <summary>
+            レイヤ定義のために継承すべきメタクラス。
+            </summary>
+            <param name="id">ID。</param>
+        </member>
+        <member name="M:KobutanLib.COP.Layer.GetLayerdObjectTypes">
+            <summary>
+            レイヤ内で定義されているクラスの型情報を返す。
+            </summary>
+            <returns>レイヤ内で定義されているクラスの型情報。</returns>
+        </member>
+        <member name="T:KobutanLib.COP.LayerState">
+            <summary>
+            レイヤの状態。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.LayerState.Inactive">
+            <summary>非アクティブ。</summary>
+        </member>
+        <member name="F:KobutanLib.COP.LayerState.Active">
+            <summary>アクティブ。</summary>
+        </member>
+        <member name="T:KobutanLib.COP.LayerActivater">
+            <summary>
+            レイヤアクティベーションを行うクラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.LayerActivater._LayerList">
+            <summary>
+            レイヤリスト。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.LayerActivater.#ctor(KobutanLib.COP.LayerList)">
+            <summary>
+            レイヤアクティベーションを行うクラス。
+            </summary>
+            <param name="layerList">レイヤリスト。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerActivater.Activate(System.String)">
+            <summary>
+            レイヤアクティベート。
+            </summary>
+            <param name="layerName">アクティベートするレイヤの名前。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerActivater.Activate(System.UInt32)">
+            <summary>
+            レイヤアクティベート。
+            </summary>
+            <param name="id">アクティベートするレイヤのID。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerActivater.Activate(KobutanLib.COP.Layer)">
+            <summary>
+            レイヤアクティベート。
+            </summary>
+            <param name="layer">アクティベートするレイヤ。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerActivater.Deactivate(System.String)">
+            <summary>
+            レイヤディアクティベート。
+            </summary>
+            <param name="layerName">ディアクティベートするレイヤの名前。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerActivater.Deactivate(System.UInt32)">
+            <summary>
+            レイヤディアクティベート。
+            </summary>
+            <param name="id">ディアクティベートするレイヤのID。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerActivater.Deactivate(KobutanLib.COP.Layer)">
+            <summary>
+            レイヤディアクティベート。
+            </summary>
+            <param name="layer">ディアクティベートするレイヤ。</param>
+        </member>
+        <member name="T:KobutanLib.COP.LayerdObjectCreater">
+            <summary>
+            レイヤードオブジェクトの生成を行うクラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.LayerdObjectCreater._MethodDispatcher">
+            <summary>
+            メソッドディスパッチャ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.LayerdObjectCreater._LayerList">
+            <summary>
+            レイヤリスト。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.LayerdObjectCreater._LayeredObjectTypes">
+            <summary>
+            生成した型情報の辞書。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.LayerdObjectCreater._PartialClassTypes">
+            <summary>
+            生成したパーシャルクラスの型情報の辞書。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.LayerdObjectCreater.#ctor(KobutanLib.COP.MethodDispatcher,KobutanLib.COP.LayerList)">
+            <summary>
+            レイヤードオブジェクトの生成を行うクラス。
+            </summary>
+            <param name="methodDispatcher">メソッドディスパッチャ。</param>
+            <param name="layerList">レイヤリスト。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerdObjectCreater.Initialize">
+            <summary>
+            初期化。必ずメソッドディスパッチャより先に実行すること。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.LayerdObjectCreater.CreateLayeredObjectType(System.Reflection.Emit.TypeBuilder,System.Type)">
+            <summary>
+            レイヤードなクラスの型情報を生成。
+            </summary>
+            <param name="typeBuilder">型情報のビルダークラス。</param>
+            <param name="baseObjectType">ベースオブジェクトの型情報。</param>
+            <returns>生成した型情報。</returns>
+        </member>
+        <member name="M:KobutanLib.COP.LayerdObjectCreater.CreatePartialClassType(System.Reflection.Emit.TypeBuilder,System.Type,System.Type,System.Type,KobutanLib.COP.Layer)">
+            <summary>
+            パーシャルクラスの型情報を生成。
+            </summary>
+            <param name="typeBuilder">型情報のビルダークラス。</param>
+            <param name="partialObjectType">パーシャルオブジェクトの型情報。</param>
+            <param name="baseObjectType">ベースオブジェクトの型情報。</param>
+            <param name="layerdObjectType">レイヤードオブジェクトの型情報。</param>
+            <param name="layer">対象のレイヤ。</param>
+            <returns>生成した型情報。</returns>
+        </member>
+        <member name="M:KobutanLib.COP.LayerdObjectCreater.CreateObject(System.Type,System.Object[])">
+            <summary>
+            レイヤードなクラスのインスタンス化。
+            </summary>
+            <param name="baseType">ベースクラスの型情報。</param>
+            <param name="args">コンストラクタに渡す引数。</param>
+            <returns>生成されたインスタンス。</returns>
+        </member>
+        <member name="T:KobutanLib.COP.LayerList">
+            <summary>
+            レイヤリスト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.LayerList.BaseLayer">
+            <summary>
+            登録されたベースレイヤ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.LayerList.Layers">
+            <summary>
+            登録されたレイヤ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.COP.LayerList.NumOfLayers">
+            <summary>
+            登録されたレイヤの個数。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.LayerList.#ctor(KobutanLib.COP.BaseLayer)">
+            <summary>
+            レイヤリストのコンストラクタ。
+            </summary>
+            <param name="baseLayer">ベースレイヤ。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerList.#ctor(KobutanLib.COP.BaseLayer,KobutanLib.COP.Layer[])">
+            <summary>
+            レイヤリストのコンストラクタ。
+            </summary>
+            <param name="baseLayer">ベースレイヤ。</param>
+            <param name="layers">ベースレイヤ以外のレイヤ。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerList.RegisterLayer(KobutanLib.COP.Layer)">
+            <summary>
+            レイヤの登録。
+            </summary>
+            <param name="layer">登録するレイヤ。</param>
+        </member>
+        <member name="M:KobutanLib.COP.LayerList.GetRegisterdLayer(System.String)">
+            <summary>
+            登録されたレイヤを取得。
+            </summary>
+            <param name="name">レイヤの名前。名前空間付きでもOK。</param>
+            <returns>指定されたレイヤ。</returns>
+        </member>
+        <member name="M:KobutanLib.COP.LayerList.GetRegisterdLayer(System.UInt32)">
+            <summary>
+            登録されたレイヤを取得。
+            </summary>
+            <param name="id">レイヤID。</param>
+            <returns>指定されたレイヤ。</returns>
+        </member>
+        <member name="M:KobutanLib.COP.LayerList.GetRegisterdLayer(System.Predicate{KobutanLib.COP.Layer})">
+            <summary>
+            登録されたレイヤを取得。
+            </summary>
+            <param name="match">条件指定するためのラムダ式。</param>
+            <returns>指定されたレイヤ。</returns>
+        </member>
+        <member name="T:KobutanLib.COP.MethodDispatcher">
+            <summary>
+            メソッドディスパッチを行うクラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.MethodDispatcher._LayerList">
+            <summary>
+            レイヤリスト
+            </summary>
+        </member>
+        <member name="F:KobutanLib.COP.MethodDispatcher._MethodLists">
+            <summary>
+            メソッドリスト。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.MethodDispatcher.#ctor(KobutanLib.COP.LayerList)">
+            <summary>
+            メソッドディスパッチを行うクラス。
+            </summary>
+            <param name="layerList">レイヤリスト。</param>
+        </member>
+        <member name="M:KobutanLib.COP.MethodDispatcher.Initialize">
+            <summary>
+            初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.COP.MethodDispatcher.CreateDelegate(System.Type,System.Reflection.MethodInfo)">
+            <summary>
+            パーシャルメソッド、ベースメソッド実行のためのデリゲートを生成。
+            </summary>
+            <param name="type">型情報。</param>
+            <param name="method">メソッド情報。</param>
+            <returns>生成したデリゲート。</returns>
+        </member>
+        <member name="M:KobutanLib.COP.MethodDispatcher.CallMethod(System.Object,System.Reflection.MethodInfo,System.Int32,System.Object[])">
+            <summary>
+            メソッド呼び出し。
+            </summary>
+            <param name="instance">レイヤードオブジェクトのインスタンス。</param>
+            <param name="methodInfo">実行するメソッド。ベースクラスのメソッド情報で指定する。</param>
+            <param name="layerIndex">呼び出したいメソッドのレイヤのインデックス。負の値を入れると、一番上のレイヤから実行。</param>
+            <param name="args">実行するメソッドに与える引数。</param>
+            <returns>実行したメソッドの戻り値。戻り値無しはnull。</returns>
+        </member>
+    </members>
+</doc>

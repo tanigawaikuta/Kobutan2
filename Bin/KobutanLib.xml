@@ -1,0 +1,4184 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KobutanLib</name>
+    </assembly>
+    <members>
+        <member name="T:KobutanLib.AppNameAttribute">
+            <summary>
+            アプリケーションの名前を表す属性。
+            "/"で区切ることで、グループ分けが可能。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.AppNameAttribute.Name">
+            <summary>
+            アプリケーション名。
+            "/"で区切ることで、グループ分けが可能。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.AppNameAttribute.#ctor(System.String)">
+            <summary>
+            アプリケーションの名前を表す属性。
+            </summary>
+            <param name="name">アプリケーション名。"/"で区切ることで、グループ分けが可能。</param>
+        </member>
+        <member name="T:KobutanLib.AppDescriptionAttribute">
+            <summary>
+            アプリケーションの説明を表す属性。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.AppDescriptionAttribute.Description">
+            <summary>
+            アプリケーションの説明。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.AppDescriptionAttribute.#ctor(System.String)">
+            <summary>
+            アプリケーションの説明を表す属性。
+            </summary>
+            <param name="description">アプリケーションの説明。</param>
+        </member>
+        <member name="T:KobutanLib.AppIconAttribute">
+            <summary>
+            アプリケーションのアイコン指定を表す属性。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.AppIconAttribute.IconName">
+            <summary>
+            使用するアイコン名。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.AppIconAttribute.#ctor(System.String)">
+            <summary>
+            アプリケーションのアイコン指定を表す属性。
+            </summary>
+            <param name="iconName">使用するアイコン名。</param>
+        </member>
+        <member name="T:KobutanLib.TargetRobotAttribute">
+            <summary>
+            ターゲットであるロボットを表す属性。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.TargetRobotAttribute.TargetRobot">
+            <summary>
+            対象とするロボット。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.TargetRobotAttribute.#ctor(KobutanLib.RobotKind)">
+            <summary>
+            ターゲットであるロボットを表す属性。
+            </summary>
+            <param name="targetRobot">対象とするロボット。</param>
+        </member>
+        <member name="T:KobutanLib.RobotKind">
+            <summary>
+            ロボットの種類。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.RobotKind.None">
+            <summary>種類なし。</summary>
+        </member>
+        <member name="F:KobutanLib.RobotKind.Create2">
+            <summary>iRobot Create2。</summary>
+        </member>
+        <member name="T:KobutanLib.Communication.BaseCommunication">
+            <summary>
+            各種通信方式のベースクラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._SendingTask">
+            <summary>送信用のタスク。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._ReceivingTask">
+            <summary>受信用のタスク。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._SendingTaskEnable">
+            <summary>タスクが有効かどうかの真偽値(送信)</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._ReceivingTaskEnable">
+            <summary>タスクが有効かどうかの真偽値(受信)</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._ErrorFlag">
+            <summary>エラー発生フラグ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._Disposed">
+            <summary>破棄済みフラグ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._SyncStartStop">
+            <summary>開始・停止の同期。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._SyncSendingTask">
+            <summary>送信タスクの同期。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.BaseCommunication._SyncReceivingTask">
+            <summary>受信タスクの同期。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.FromServer">
+            <summary>
+            サーバーから受け入れた通信であるか。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.SendingCycle">
+            <summary>
+            送信タスクの周期(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.ReceivingCycle">
+            <summary>
+            受信タスクの周期(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.MaxTaskErrorCount">
+            <summary>
+            送受信タスクで連続エラーが許容される回数。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.TaskTimeout">
+            <summary>
+            送受信タスク終了時のwaitでタイムアウトする時間(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.ReadTimeout">
+            <summary>
+            読み込みのタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.WriteTimeout">
+            <summary>
+            書き込みのタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.IsConnect">
+            <summary>
+            接続中かどうか。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.BaseCommunication.BytesToRead">
+            <summary>
+            受信バッファ内のデータのバイト数。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.#ctor(System.Boolean)">
+            <summary>
+            BaseCommunicationクラスのインスタンス化。
+            </summary>
+            <param name="fromServer">サーバーから受け入れた通信であるか。</param>
+        </member>
+        <member name="E:KobutanLib.Communication.BaseCommunication.Connected">
+            <summary>
+            接続完了時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.OnConnected(KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            接続完了時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Communication.BaseCommunication.Disconnecting">
+            <summary>
+            切断開始時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.OnDisconnecting(KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            切断開始時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Communication.BaseCommunication.DataReceived">
+            <summary>
+            データ受信時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.OnDataReceived(KobutanLib.Communication.DataReceivedEventArgs)">
+            <summary>
+            データ受信時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Communication.BaseCommunication.DataSending">
+            <summary>
+            送信スレッドの送信タイミングで発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.OnDataSending(KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            送信スレッドの送信タイミングのときのアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Communication.BaseCommunication.ErrorOccurred">
+            <summary>
+            エラーが起こった際に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.OnErrorOccurred(KobutanLib.Communication.CommunicationErrorEventArgs)">
+            <summary>
+            エラーが起こった際のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.Connect">
+            <summary>
+            通信の接続を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.Disconnect">
+            <summary>
+            通信の切断を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの読み込み。
+            </summary>
+            <param name="buf">読み込み先のバッファ。</param>
+            <param name="offset">読み込み先バッファのオフセット。</param>
+            <param name="length">読み込むデータの長さ。</param>
+            <returns>読み込まれたデータのサイズ</returns>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの書き込み。
+            </summary>
+            <param name="buf">書き込むバッファ。</param>
+            <param name="offset">書き込むバッファのオフセット。</param>
+            <param name="length">書き込むバッファの長さ。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.StartSendingTask">
+            <summary>
+            送信タスクを開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.StopSendingTask">
+            <summary>
+            送信タスクを停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.StartReceivingTask">
+            <summary>
+            受信タスクを開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.StopReceivingTask">
+            <summary>
+            受信タスクを停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.Dispose">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.BaseCommunication.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.CommunicationServer">
+            <summary>
+            通信受け入れ用のサーバ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Communication.CommunicationServer._AcceptedClients">
+            <summary>接続中のクライアントリスト。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.CommunicationServer._Disposed">
+            <summary>破棄済みフラグ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.CommunicationServer._MaxClients">
+            <summary>同時接続を許可するクライアント数。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.CommunicationServer.IsListening">
+            <summary>
+            Listening状態かどうか。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.CommunicationServer.SizeOfListenQueue">
+            <summary>
+            クライアント受け入れ用のキューの大きさ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.CommunicationServer.MaxClients">
+            <summary>
+            同時接続を許可するクライアント数。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.CommunicationServer.AcceptedClients">
+            <summary>
+            接続中のクライアント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.#ctor">
+            <summary>
+            CommunicationServerクラスのインスタンス化。
+            </summary>
+        </member>
+        <member name="E:KobutanLib.Communication.CommunicationServer.ClientAccepted">
+            <summary>
+            クライアントを受け入れた際に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.OnClientAccepted(KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            ClientAccepted イベントを発生させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Communication.CommunicationServer.ClientDisconnected">
+            <summary>
+            クライアントから切断された際に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.OnClientDisconnected(KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            ClientDisconnected イベントを発生させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Communication.CommunicationServer.DataReceived">
+            <summary>
+            クライアントからデータを受信した際に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.OnDataReceived(KobutanLib.Communication.DataReceivedEventArgs)">
+            <summary>
+            DataReceived イベントを発生させる。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.Listen">
+            <summary>
+            クライアントの受け入れを開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.CloseServer">
+            <summary>
+            サーバを閉じ、クライアントの受け入れを終了する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.CloseClient(KobutanLib.Communication.BaseCommunication)">
+            <summary>
+            指定したクライアントとの接続を閉じる。
+            </summary>
+            <param name="client">クライアント。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.CloseAllClients">
+            <summary>
+            全てのクライアントとの接続を閉じる。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.SendToAllClients(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            全てのクライアントにデータを送信する。
+            </summary>
+            <param name="data">書き込むバッファ。</param>
+            <param name="offset">書き込むバッファのオフセット。</param>
+            <param name="size">書き込むバッファの長さ。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.Dispose">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationServer.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.CommunicationEventHandler">
+            <summary>
+            通信クラスで発生するイベントを処理するメソッドのデリゲート。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.CommunicationEventArgs">
+            <summary>
+            CommunicationEventHandlerのイベントデータを格納するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.CommunicationEventArgs.Communication">
+            <summary>関係する通信。</summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationEventArgs.#ctor(KobutanLib.Communication.BaseCommunication)">
+            <summary>
+            CommunicationEventArgs クラスのコンストラクタ。
+            </summary>
+            <param name="communication">関係する通信。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.DataReceivedEventHandler">
+            <summary>
+            データ受信時に発生するイベントを処理するメソッドのデリゲート。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.DataReceivedEventArgs">
+            <summary>
+            DataReceivedEventHandlerのイベントデータを格納するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.DataReceivedEventArgs.Communication">
+            <summary>データ受信元との通信。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.DataReceivedEventArgs.ReceivedDataLength">
+            <summary>受信データの長さ。</summary>
+        </member>
+        <member name="M:KobutanLib.Communication.DataReceivedEventArgs.#ctor(KobutanLib.Communication.BaseCommunication)">
+            <summary>
+            DataReceivedEventArgs クラスのコンストラクタ。
+            </summary>
+            <param name="communication">データ受信元との通信。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.CommunicationErrorEventHandler">
+            <summary>
+            エラー時に発生するイベントを処理するメソッドのデリゲート。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.CommunicationErrorEventArgs">
+            <summary>
+            CommunicationErrorEventHandlerのイベントデータを格納するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.CommunicationErrorEventArgs.Communication">
+            <summary>エラー発生した通信。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.CommunicationErrorEventArgs.Exception">
+            <summary>発生した例外。</summary>
+        </member>
+        <member name="M:KobutanLib.Communication.CommunicationErrorEventArgs.#ctor(KobutanLib.Communication.BaseCommunication,System.Exception)">
+            <summary>
+            CommunicationErrorEventArgs クラスのコンストラクタ。
+            </summary>
+            <param name="communication">エラー発生した通信。</param>
+            <param name="exception">発生した例外。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.SerialCommunication">
+            <summary>
+            シリアル通信。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._SerialPort">
+            <summary>シリアルポート。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._IsConnect">
+            <summary>接続中かどうか。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._PortName">
+            <summary>ポート名。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._BaudRate">
+            <summary>ボーレート。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._Parity">
+            <summary>パリティ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._DataBits">
+            <summary>通信単位</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._StopBits">
+            <summary>ストップビット</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._DataReceivedEventArgs">
+            <summary>受信イベント用。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._ErrorCountOfReceivedEvent">
+            <summary>受信イベントのエラーカウント。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._ReadTimeout">
+            <summary>読み込みタイムアウト。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.SerialCommunication._WriteTimeout">
+            <summary>書き込みタイムアウト。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.IsConnect">
+            <summary>
+            接続中かどうか。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.ReadTimeout">
+            <summary>
+            読み込みのタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.WriteTimeout">
+            <summary>
+            書き込みののタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.BytesToRead">
+            <summary>
+            受信バッファ内のデータのバイト数。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.PortName">
+            <summary>
+            ポート名。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.BaudRate">
+            <summary>
+            ボーレート。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.Parity">
+            <summary>
+            パリティ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.DataBits">
+            <summary>
+            通信単位
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.SerialCommunication.StopBits">
+            <summary>
+            ストップビット
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.#ctor(System.String,System.Int32)">
+            <summary>
+            SerialCommunicationクラスのインスタンス化。
+            </summary>
+            <param name="portName">ポート名。</param>
+            <param name="baudRate">ボーレート。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.#ctor(System.String,System.Int32,System.IO.Ports.Parity,System.Int32,System.IO.Ports.StopBits)">
+            <summary>
+            SerialCommunicationクラスのインスタンス化。
+            </summary>
+            <param name="portName">ポート名。</param>
+            <param name="baudRate">ボーレート。</param>
+            <param name="parity">パリティ。</param>
+            <param name="dataBits">通信単位。</param>
+            <param name="stopBits">ストップビット。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.Connect">
+            <summary>
+            通信の接続を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.Disconnect">
+            <summary>
+            通信の切断を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの読み込み。
+            </summary>
+            <param name="buf">読み込み先のバッファ。</param>
+            <param name="offset">読み込み先バッファのオフセット</param>
+            <param name="length">読み込むデータの長さ</param>
+            <returns>読み込まれたデータのサイズ</returns>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの書き込み。
+            </summary>
+            <param name="buf">書き込むバッファ</param>
+            <param name="offset">書き込むバッファのオフセット</param>
+            <param name="length">書き込むバッファの長さ</param>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.StartReceivingTask">
+            <summary>
+            受信タスクを開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.StopReceivingTask">
+            <summary>
+            受信タスクを停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication._SerialPort_DataReceived(System.Object,System.IO.Ports.SerialDataReceivedEventArgs)">
+            <summary>
+            SerialPortのデータ受信時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication._SerialPort_PinChanged(System.Object,System.IO.Ports.SerialPinChangedEventArgs)">
+            <summary>
+            シリアルのピンの状態変化時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication._SerialPort_ErrorReceived(System.Object,System.IO.Ports.SerialErrorReceivedEventArgs)">
+            <summary>
+            シリアル通信でエラーを受け取った際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.SerialCommunication.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.TCPCommunication">
+            <summary>
+            TCP/IPによる通信。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._Socket">
+            <summary>ソケット。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._IpOrHost">
+            <summary>IPアドレスまたはホスト名。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._Port">
+            <summary>ポート番号。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._IsConnect">
+            <summary>接続中かどうか。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._SendBufferSize">
+            <summary>送信バッファサイズ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._ReceiveBufferSize">
+            <summary>受信バッファサイズ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._ReadTimeout">
+            <summary>読み込みタイムアウト。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunication._WriteTimeout">
+            <summary>書き込みタイムアウト。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.IsConnect">
+            <summary>
+            接続中かどうか。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.ReadTimeout">
+            <summary>
+            読み込みのタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.WriteTimeout">
+            <summary>
+            書き込みののタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.BytesToRead">
+            <summary>
+            受信バッファ内のデータのバイト数。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.ReceiveBufferSize">
+            <summary>
+            受信バッファサイズ。
+            既定値は 8192。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.SendBufferSize">
+            <summary>
+            送信バッファサイズ。
+            既定値は 8192。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.LocalEndPoint">
+            <summary>
+            ローカルエンドポイント。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunication.RemoteEndPoint">
+            <summary>
+            リモートエンドポイント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.#ctor(System.String,System.Int32)">
+            <summary>
+            TCPCommunication のインスタンス化。
+            </summary>
+            <param name="ipOrHost">IPアドレスまたはホスト名。</param>
+            <param name="port">ポート番号。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.#ctor(System.Net.Sockets.Socket)">
+            <summary>
+            TCPCommunication のインスタンス化。
+            サーバ受け入れ専用。
+            </summary>
+            <param name="socket">ソケット。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.Connect">
+            <summary>
+            通信の接続を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.Disconnect">
+            <summary>
+            通信の切断を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの読み込み。
+            </summary>
+            <param name="buf">読み込み先のバッファ。</param>
+            <param name="offset">読み込み先バッファのオフセット</param>
+            <param name="length">読み込むデータの長さ</param>
+            <returns>読み込まれたデータのサイズ</returns>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの書き込み。
+            </summary>
+            <param name="buf">書き込むバッファ</param>
+            <param name="offset">書き込むバッファのオフセット</param>
+            <param name="length">書き込むバッファの長さ</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.StartCheckingCondition">
+            <summary>
+            接続状況の確認を開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunication.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.TCPCommunicationServer">
+            <summary>
+            TCP/IP通信のためのサーバ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunicationServer._Socket">
+            <summary>サーバ用のソケット。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunicationServer._Port">
+            <summary>ポート番号。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.TCPCommunicationServer._SyncSocket">
+            <summary>スレッド間の同期用。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.TCPCommunicationServer.LocalEndPoint">
+            <summary>
+            ローカルエンドポイント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.#ctor(System.Int32)">
+            <summary>
+            TCPCommunicationServerクラスのインスタンス化。
+            </summary>
+            <param name="port">ポート番号。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.Listen">
+            <summary>
+            クライアントの受け入れを開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.CloseServer">
+            <summary>
+            サーバを閉じ、クライアントの受け入れを終了する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.CloseClient(KobutanLib.Communication.BaseCommunication)">
+            <summary>
+            指定したクライアントとの接続を閉じる。
+            </summary>
+            <param name="client">接続を閉じたいクライアント。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.CloseAllClients">
+            <summary>
+            全てのクライアントとの接続を閉じる。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.SendToAllClients(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            全てのクライアントにデータを送信する。
+            </summary>
+            <param name="data">書き込むバッファ。</param>
+            <param name="offset">書き込むバッファのオフセット。</param>
+            <param name="size">書き込むバッファの長さ。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.AcceptCallback(System.IAsyncResult)">
+            <summary>
+            BeginAcceptのコールバック。
+            </summary>
+            <param name="ar">非同期操作のステータスを表します。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.Client_Disconnecting(System.Object,KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            クライアントから切断されたときに実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.Client_DataReceived(System.Object,KobutanLib.Communication.DataReceivedEventArgs)">
+            <summary>
+            クライアントからデータを受信した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.Client_ErrorOccurred(System.Object,KobutanLib.Communication.CommunicationErrorEventArgs)">
+            <summary>
+            クライアントとの通信エラーが発生した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.TCPCommunicationServer.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Communication.UDPCommunication">
+            <summary>
+            UDP/IPによる通信。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._IpOrHost">
+            <summary>IPアドレスまたはホスト名。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._SendingPort">
+            <summary>送信用ポート番号。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._ReceivingPort">
+            <summary>受信用ポート番号。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._IsConnect">
+            <summary>接続中かどうか。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._SendBufferSize">
+            <summary>送信バッファサイズ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._ReceiveBufferSize">
+            <summary>受信バッファサイズ。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._SendingSocket">
+            <summary>送信用ソケット。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._ReceivingSocket">
+            <summary>受信用ソケット。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._SendingLocalEndPoint">
+            <summary>ローカルエンドポイント(送信)。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._ReceivingLocalEndPoint">
+            <summary>ローカルエンドポイント(受信)。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._SendingRemoteEndPoint">
+            <summary>リモートエンドポイント(送信)。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._ReceivingRemoteEndPoint">
+            <summary>リモートエンドポイント(受信)。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._ReadTimeout">
+            <summary>読み込みタイムアウト。</summary>
+        </member>
+        <member name="F:KobutanLib.Communication.UDPCommunication._WriteTimeout">
+            <summary>書き込みタイムアウト。</summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.IsConnect">
+            <summary>
+            接続中かどうか。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.ReadTimeout">
+            <summary>
+            読み込みのタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.WriteTimeout">
+            <summary>
+            書き込みののタイムアウト(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.BytesToRead">
+            <summary>
+            受信バッファ内のデータのバイト数。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.ReceiveBufferSize">
+            <summary>
+            受信バッファサイズ。
+            既定値は 8192。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.SendBufferSize">
+            <summary>
+            送信バッファサイズ。
+            既定値は 8192。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.SendingLocalEndPoint">
+            <summary>
+            ローカルエンドポイント(送信)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.ReceivingLocalEndPoint">
+            <summary>
+            ローカルエンドポイント(受信)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.SendingRemoteEndPoint">
+            <summary>
+            リモートエンドポイント(送信)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Communication.UDPCommunication.ReceivingRemoteEndPoint">
+            <summary>
+            リモートエンドポイント(受信)。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.UDPCommunication.#ctor(System.String,System.Int32,System.Int32)">
+            <summary>
+            UDPCommunication のインスタンス化。
+            </summary>
+            <param name="ipOrHost">IPアドレスまたはホスト名。</param>
+            <param name="sendingPort">送信用のポート番号。</param>
+            <param name="receivingPort">受信用のポート番号。</param>
+        </member>
+        <member name="M:KobutanLib.Communication.UDPCommunication.Connect">
+            <summary>
+            通信の接続を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.UDPCommunication.Disconnect">
+            <summary>
+            通信の切断を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Communication.UDPCommunication.Read(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの読み込み。
+            </summary>
+            <param name="buf">読み込み先のバッファ。</param>
+            <param name="offset">読み込み先バッファのオフセット</param>
+            <param name="length">読み込むデータの長さ</param>
+            <returns>読み込まれたデータのサイズ</returns>
+        </member>
+        <member name="M:KobutanLib.Communication.UDPCommunication.Write(System.Byte[],System.Int32,System.Int32)">
+            <summary>
+            データの書き込み。
+            </summary>
+            <param name="buf">書き込むバッファ</param>
+            <param name="offset">書き込むバッファのオフセット</param>
+            <param name="length">書き込むバッファの長さ</param>
+        </member>
+        <member name="M:KobutanLib.Communication.UDPCommunication.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Devices.Device">
+            <summary>
+            各種デバイスのベースクラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Devices.Device._Disposed">
+            <summary>
+            破棄済みフラグ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Devices.Device.ProductName">
+            <summary>
+            製品名。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Devices.Device.ProductID">
+            <summary>
+            製品ID。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Devices.Device.VendorID">
+            <summary>
+            ベンダーID。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Devices.Device.DeviceTypeName">
+            <summary>
+            デバイスの種類の名前。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Devices.Device.#ctor">
+            <summary>
+            Device クラスのコンストラクタ。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Devices.Device.InitializeDevice">
+            <summary>
+            デバイスの初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Devices.Device.UpdateDevice">
+            <summary>
+            デバイスのアップデート。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Devices.Device.FinalizeDevice">
+            <summary>
+            デバイスの終了処理。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Devices.Device.Dispose">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Devices.Device.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.IconRegistration">
+            <summary>
+            アイコン登録。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.IconRegistration._ApplicationManager">
+            <summary>
+            アプリケーション管理。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.IconRegistration.#ctor(KobutanLib.Management.IApplicationManager)">
+            <summary>
+            アイコン登録。
+            </summary>
+            <param name="applicationManager">アプリケーション管理。</param>
+        </member>
+        <member name="M:KobutanLib.IconRegistration.StartRegistration">
+            <summary>
+            ユーザはこのメソッドをオーバライドし、アイコンの登録を行う。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.IconRegistration.RegisterIcon(System.String,KobutanLib.Management.IconInfo)">
+            <summary>
+            アイコンの登録。
+            </summary>
+            <param name="name">アイコンの名前。</param>
+            <param name="iconInfo">設定するアイコン情報。</param>
+        </member>
+        <member name="T:KobutanLib.DefaultIconRegistration">
+            <summary>
+            デフォルトアイコンの登録。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.DefaultIconRegistration.#ctor(KobutanLib.Management.IApplicationManager)">
+            <summary>
+            デフォルトアイコンの登録。
+            </summary>
+            <param name="applicationManager">アプリケーション管理。</param>
+        </member>
+        <member name="M:KobutanLib.DefaultIconRegistration.StartRegistration">
+            <summary>
+            ユーザはこのメソッドをオーバライドし、アイコンの登録を行う。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.KobuTimer">
+            <summary>
+            こぶたんアプリケーションのためのタイマ。
+            アプリケーションの実行時間の計測や、スレッドのスリープなど、時間に関する機能を提供する。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.KobuTimer._Stopwatch">
+            <summary>
+            高精度タイマ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.KobuTimer._CancellationTokenSourceList">
+            <summary>
+            Sleep中断用のキャンセルトークンソース。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.KobuTimer._SleepEnabledFlag">
+            <summary>
+            Sleepが許可されているか。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.KobuTimer._SyncCancellationTokenDisposing">
+            <summary>
+            キャンセルトークン処分の同期。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.KobuTimer._Disposed">
+            <summary>
+            破棄済みフラグ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobuTimer.ExecutionTime">
+            <summary>
+            アプリケーションの実行時間[msec]。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobuTimer.#ctor">
+            <summary>
+            こぶたんアプリケーションのためのタイマ。
+            アプリケーションの実行時間の計測や、スレッドのスリープなど、時間に関する機能を提供する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobuTimer.Sleep(System.Int32)">
+            <summary>
+            現在のスレッドをスリープさせる。アプリケーション時には、スリープを中断してそのまま抜ける。
+            </summary>
+            <param name="sleeppingTime">スリープ時間[msec]。-1だと永久にスリープする。</param>
+        </member>
+        <member name="M:KobutanLib.KobuTimer.StartMeasurementOfExecutionTime">
+            <summary>
+            実行時間の計測を開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobuTimer.StopMeasurementOfExecutionTime">
+            <summary>
+            実行時間の計測を終了する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobuTimer.ChangeSleepEnabledFlag(System.Boolean)">
+            <summary>
+            スリープ許可のフラグを変化させる。
+            </summary>
+            <param name="flag">スリープ許可のフラグ。</param>
+        </member>
+        <member name="M:KobutanLib.KobuTimer.CancelSleepping">
+            <summary>
+            スリープを中断する。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.Culture">
+            <summary>
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.ConsoleScreenName">
+            <summary>
+              System/Console に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.ExecutionScreenName">
+            <summary>
+              System/Execution に類似しているローカライズされた文字列を検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.KobutanAppIcon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.KobutanAppImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.RobotIcon">
+            <summary>
+              (アイコン) に類似した型 System.Drawing.Icon のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Properties.Resources.RobotImage">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.KobutanApp">
+            <summary>
+            こぶたんのアプリケーションクラス。
+            全てのこぶたんアプリケーションは、このクラスを継承して実現する。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._MainThread">
+            <summary>メインスレッド。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._MainThreadEnable">
+            <summary>メインスレッドが有効であるか。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._ExceptionFromMainThreadFlag">
+            <summary>メインスレッドで例外発生が起きたフラグ。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._FinalizedExceptionFlag">
+            <summary>終了処理後に、メインスレッド終了のための例外を投げるフラグ。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._FinalisingFlag">
+            <summary>終了実行中フラグ。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._SyncStartStop">
+            <summary>開始・停止の同期。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._SyncReadLine">
+            <summary>ReadLineの同期。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._Disposed">
+            <summary>破棄済みフラグ。</summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.IsStarting">
+            <summary>
+            開始済みフラグ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.KobutanSystem">
+            <summary>
+            こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.InstanceInfo">
+            <summary>
+            インスタンス情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.MyForm">
+            <summary>
+            アプリケーションのためのフォーム。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.AppName">
+            <summary>
+            アプリケーション名。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.AppFullName">
+            <summary>
+            アプリケーション完全名。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.InstanceName">
+            <summary>
+            インスタンス名。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.IconInfo">
+            <summary>
+            アイコン情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.MainLoopCycle">
+            <summary>
+            メインループの周期(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.ThreadTimeout">
+            <summary>
+            メインスレッド終了時のwaitでタイムアウトする時間(ミリ秒単位)。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.KobuTimer">
+            <summary>
+            こぶたんアプリケーションのためのタイマ。
+            アプリケーションの実行時間の計測や、スレッドのスリープなど、時間に関する機能を提供する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.#ctor(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            KobutanApp のインスタンス化。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.StartApp">
+            <summary>
+            アプリケーションの開始。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.StopApp">
+            <summary>
+            アプリケーションの終了。
+            </summary>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.AppStarting">
+            <summary>
+            アプリケーション開始時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.OnAppStarting(System.EventArgs)">
+            <summary>
+            アプリケーション開始時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.AppInitialized">
+            <summary>
+            アプリケーション初期化後に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.OnAppInitialized(System.EventArgs)">
+            <summary>
+            アプリケーション初期化後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.AppStopping">
+            <summary>
+            アプリケーション停止時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.OnAppStopping(System.EventArgs)">
+            <summary>
+            アプリケーション停止時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.AppFinalized">
+            <summary>
+            アプリケーション終了処理後に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.OnAppFinalized(System.EventArgs)">
+            <summary>
+            アプリケーション終了処理後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.StartMainThread">
+            <summary>
+            メインスレッドを開始。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.StopMainThread">
+            <summary>
+            メインスレッドの停止。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.InitializeApp">
+            <summary>
+            アプリケーションの初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.FinalizeApp">
+            <summary>
+            アプリケーションの終了処理。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.MainLoop">
+            <summary>
+            メインループ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._AppScreenDictionary">
+            <summary>
+            アプリケーション画面型の辞書。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.FirstScreenName">
+            <summary>
+            最初に表示される画面の指定。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.RegistrationOfAppScreens">
+            <summary>
+            アプリケーション画面の登録。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.RegisterScreen(System.String,System.Type)">
+            <summary>
+            画面登録の実行。
+            </summary>
+            <param name="screenName">画面の名前。</param>
+            <param name="screen">登録する画面の型情報。</param>
+        </member>
+        <member name="T:KobutanLib.KobutanApp.IScreenGenerator">
+            <summary>
+            画面生成のインターフェース。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IScreenGenerator.CreateScreen(System.String)">
+            <summary>
+            登録内容を基に画面を生成する。
+            </summary>
+            <param name="screenName">画面の名前。</param>
+            <returns>生成された画面。</returns>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IScreenGenerator.GetRegisteredScreenNames">
+            <summary>
+            登録済みの画面名を全て返す。
+            </summary>
+            <returns>登録済みの画面名。</returns>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IScreenGenerator#CreateScreen(System.String)">
+            <summary>
+            登録内容を基に画面を生成する。
+            </summary>
+            <param name="screenName">画面の名前。</param>
+            <returns>生成された画面。</returns>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IScreenGenerator#GetRegisteredScreenNames">
+            <summary>
+            登録済みの画面名を全て返す。
+            </summary>
+            <returns>登録済みの画面名。</returns>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._ConsoleLog">
+            <summary>ログ。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._InputedTextQueue">
+            <summary>入力されたテキストを格納するためのキュー。</summary>
+        </member>
+        <member name="F:KobutanLib.KobutanApp._WaittingTextInputFlag">
+            <summary>テキスト入力待ちフラグ。</summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.AppConsole">
+            <summary>
+            アプリケーションのためのコンソール。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.KobutanApp.IKobutanAppConsole">
+            <summary>
+            こぶたんアプリケーションのためのコンソール。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IKobutanAppConsole.Write(System.String)">
+            <summary>
+            文字列の書き込み。
+            </summary>
+            <param name="str">文字列。</param>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IKobutanAppConsole.WriteLine(System.String)">
+            <summary>
+            文字列の書き込み。末尾改行付き。
+            </summary>
+            <param name="str">文字列。</param>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IKobutanAppConsole.ReadLine">
+            <summary>
+            文字列の読み込み。ユーザの入力によって読み込みが完了するまで待つ。
+            </summary>
+            <returns>読み込んだ文字列。</returns>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IKobutanAppConsole.GetLog">
+            <summary>
+            これまで書き込まれたログを取得する。
+            </summary>
+            <returns>これまで書き込まれた内容。</returns>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IKobutanAppConsole.ClearLog">
+            <summary>
+            ログをクリアする。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IKobutanAppConsole#Write(System.String)">
+            <summary>
+            文字列の書き込み。
+            </summary>
+            <param name="str">文字列。</param>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IKobutanAppConsole#WriteLine(System.String)">
+            <summary>
+            文字列の書き込み。末尾改行付き。
+            </summary>
+            <param name="str">文字列。</param>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IKobutanAppConsole#ReadLine">
+            <summary>
+            文字列の読み込み。ユーザの入力によって読み込みが完了するまで待つ。
+            </summary>
+            <returns>読み込んだ文字列。待っている間に強制終了された場合はnullを返す。</returns>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IKobutanAppConsole#GetLog">
+            <summary>
+            これまで書き込まれたログを取得する。
+            </summary>
+            <returns>これまで書き込まれた内容。</returns>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IKobutanAppConsole#ClearLog">
+            <summary>
+            ログをクリアする。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.KobutanApp.IConsoleEventManager">
+            <summary>
+            コンソール関連のイベントマネージャ
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.IConsoleEventManager.OnTextInputted(System.String)">
+            <summary>
+            ユーザがユーザインタフェースを使ってテキスト入力する際に実行する。
+            </summary>
+            <param name="text">入力されたテキスト。</param>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.IConsoleEventManager.TextWritten">
+            <summary>
+            テキスト書き込み時に発生するイベント。
+            </summary>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.IConsoleEventManager.LogCleared">
+            <summary>
+            ログクリア時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IConsoleEventManager#OnTextInputted(System.String)">
+            <summary>
+            ユーザがユーザインタフェースを使ってテキスト入力する際に実行する。
+            プログラムから呼び出す場合は、Writeの方を使うこと。
+            </summary>
+            <param name="text">入力されたテキスト。</param>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IConsoleEventManager#TextWritten">
+            <summary>
+            テキスト書き込み時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.OnTextWritten(KobutanLib.KobutanApp.TextEventArgs)">
+            <summary>
+            テキスト書き込み時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.KobutanApp.KobutanLib#KobutanApp#IConsoleEventManager#LogCleared">
+            <summary>
+            ログクリア時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.OnTextCleared(KobutanLib.KobutanApp.TextEventArgs)">
+            <summary>
+            ログクリア時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.KobutanApp.TextEventHandler">
+            <summary>
+            テキスト関連のイベントを処理するメソッドのデリゲート。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.KobutanApp.TextEventArgs">
+            <summary>
+            TextEventHandlerのイベントデータを格納するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.KobutanApp.TextEventArgs.Text">
+            <summary>関係するテキスト。</summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.TextEventArgs.#ctor(System.String)">
+            <summary>
+            TextEventArgs クラスのコンストラクタ。
+            </summary>
+            <param name="text">関係するテキスト。</param>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.Dispose">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.KobutanApp.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.RobotApp">
+            <summary>
+            ロボットを動作させるための こぶたんアプリケーションを実現するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.RobotApp.Robot">
+            <summary>
+            ロボット操作のためのオブジェクト。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.RobotApp.#ctor(KobutanLib.Management.KobutanSystem,KobutanLib.Robots.RobotController)">
+            <summary>
+            RobotApp のインスタンス化。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+            <param name="robot">ロボット操作のためのオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.RobotApp.OnAppStarting(System.EventArgs)">
+            <summary>
+            アプリケーション開始時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.RobotApp.OnAppFinalized(System.EventArgs)">
+            <summary>
+            アプリケーション終了処理後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.RobotApp.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Create2App">
+            <summary>
+            iRobot Create2を動作させるための こぶたんアプリケーションを実現するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Create2App.Create2">
+            <summary>
+            Create2操作のためのオブジェクト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Create2App.RequestSensorPacketIDs">
+            <summary>
+            受信したいセンサパケットのID。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Create2App.#ctor(KobutanLib.Management.KobutanSystem,KobutanLib.Robots.RobotController)">
+            <summary>
+            RobotApp のインスタンス化。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+            <param name="robot">ロボット操作のためのオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.Create2App.OnAppStarting(System.EventArgs)">
+            <summary>
+            アプリケーション開始時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Create2App.OnAppInitialized(System.EventArgs)">
+            <summary>
+            アプリケーション初期化後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Create2App.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller">
+            <summary>
+            iRobot Create2操作クラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.DiameterBetweenBothWheels">
+            <summary>両輪間の直径[mm]。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.DiameterOfWheels">
+            <summary>タイヤの直径[mm]。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.WheelRevolutionEncoderCounts">
+            <summary>タイヤを一回転させた際のエンコーダカウント。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._SendBuf">
+            <summary>送信バッファ。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._SendBufCounter">
+            <summary>送信バッファのカウンタ。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._SyncSending">
+            <summary>送信同期用。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._ReceiveBuf">
+            <summary>受信バッファ。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._ReceiveState">
+            <summary>受信状態。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._ReceiveStateCounter">
+            <summary>受信状態カウンタ。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._CheckSum">
+            <summary>チェックサム。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._SensorBuf">
+            <summary>センサ用のバッファ。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._SyncReceiving">
+            <summary>受信同期用。</summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.#ctor(KobutanLib.Communication.BaseCommunication)">
+            <summary>
+            Create2Controllerクラスのインスタンス化を行う。
+            </summary>
+            <param name="communication">ロボットとの通信。通信の接続や設定は外部に任せる。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.InitializeRobotController">
+            <summary>
+            ロボット操作の初期化。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.CommonAPIChecker">
+            <summary>
+            ロボット共通の機能のうち、実装されているものと、そうでないものを見分ける。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._CommonAPIChecker">
+            <summary>
+            CommonAPIImplementationChecker_Create2のインスタンス。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.CommonAPICheckerClass_Create2">
+            <summary>
+            ロボット共通の機能のうち、実装されているものと、そうでないものを見分ける。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.CommonAPICheckerClass_Create2.#ctor(KobutanLib.Robots.RobotController)">
+            <summary>
+            CommonAPICheckerClass_Create2 のコンストラクタ。
+            </summary>
+            <param name="robotController">ロボットコントローラ。</param>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.CommonAPICheckerClass_Create2.Item(System.String)">
+            <summary>
+            メソッド名、プロパティ名から、その機能が実装されているか調べるためのインデクサ。
+            </summary>
+            <param name="funcName">メソッド名 or プロパティ名。</param>
+            <returns>実装されているかどうか。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.MoveOnCircle(System.Double,System.Double)">
+            <summary>
+            ロボットを平面移動させる。指定した半径の円に沿うように動く。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+            <param name="radius">旋回半径 [mm]。0:直進、1:超信地旋回(反時計周り)、-1:超信地旋回(時計周り)
+            </param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.GoForward(System.Double)">
+            <summary>
+            ロボットを前進させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.GoBackward(System.Double)">
+            <summary>
+            ロボットを後退させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.TurnLeft(System.Double)">
+            <summary>
+            左旋回。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.TurnRight(System.Double)">
+            <summary>
+            右旋回。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.TurnZ(System.Double)">
+            <summary>
+            Z軸旋回。軸の根本から見て反時計周りが正の値。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.Stop">
+            <summary>
+            ロボットの動きを止める。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.ResetState">
+            <summary>
+            ロボットの内部状態をリセットする。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.GetDistanceToObstacle(System.Double,System.Double)">
+            <summary>
+            【未実装】そのうち…
+            指定した方向にある障害物との距離を返す。
+            </summary>
+            <param name="direction">方向[度]。正面を0度として、左側を正の角度とする。</param>
+            <param name="direction2">方向[度]。正面を0度として、上側を正の角度とする。</param>
+            <returns>障害物との距離[mm]</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.DetectCollision">
+            <summary>
+            衝突検知を行う。
+            </summary>
+            <returns>どこかで衝突しているか。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.DetectCollision(System.Double,System.Double)">
+            <summary>
+            【未実装】そのうち…
+            指定している方向について衝突検知を行う。
+            </summary>
+            <param name="direction">方向[度]。正面を0度として、左側を正の角度とする。</param>
+            <param name="direction2">方向[度]。正面を0度として、上側を正の角度とする。</param>
+            <returns>指定した方向で衝突しているか。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.IsButtonPush(System.Int32)">
+            <summary>
+            指定したIDのボタンが押されているかどうか。
+            使用できるボタンはユーザが自由にできるもののみ。
+            </summary>
+            <param name="buttonID">ボタンのID。</param>
+            <returns>ボタン押下の真偽値。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.SetLed(System.Int32,System.UInt32)">
+            <summary>
+            指定したIDのLEDの設定を行う。
+            </summary>
+            <param name="LedID">対象とするLED。</param>
+            <param name="colorAndPower">上位3バイト=RGB、下位1バイト=光の強さ。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.PlaySound(KobutanLib.Robots.Note[])">
+            <summary>
+            曲（音符の集合）を再生する。
+            </summary>
+            <param name="song">再生する曲。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.WriteText(System.String)">
+            <summary>
+            与えられたテキストをロボットに表示。
+            </summary>
+            <param name="text">表示するテキスト。</param>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.X">
+            <summary>
+            X座標[mm]。左右の位置。右が正の値、左が負の値。初めに置いている位置の座標を0とする。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._X">
+            <summary>X座標。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Y">
+            <summary>
+            Y座標[mm]。前後の位置。前が正の値、後が負の値。初めに置いている位置の座標を0とする。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._Y">
+            <summary>Y座標。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Angle">
+            <summary>
+            角度[度]。基準となる軸はロボットごとに異なる。Create2はZ軸を基準とする。
+            軸の根本から見て反時計周りが正の値。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._AngleRad">
+            <summary>角度。内部的にはラジアン。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AngleZ">
+            <summary>
+            Z軸の角度[度]。軸の根本から見て反時計周りが正の値。初めに向いている方向を90度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Velocity">
+            <summary>
+            速度[mm/s]。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._Velocity">
+            <summary>速度。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AngularVelocity">
+            <summary>
+            角速度[deg/s]。基準となる軸はロボットごとに異なる。Create2はZ軸を基準とする。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller._AngularVelocityRad">
+            <summary>角度。内部的にはラジアン。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AngularVelocityZ">
+            <summary>
+            Z軸の角速度[deg/s]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.RemainingBatteryCapacity">
+            <summary>
+            バッテリー残量[%]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Temperature">
+            <summary>
+            温度[℃]。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.MoveToDirection(System.Double,System.Double,System.Double)">
+            <summary>
+            【非対応】
+            ロボットを指定した方向に移動させる。正面を基準とする偏角に進む。
+            </summary>
+            <param name="velocity">速度[mm/s]。</param>
+            <param name="direction">方向[度]。正面を0度として、左側を正の角度とする。</param>
+            <param name="direction2">方向[度]。正面を0度として、上側を正の角度とする。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.GoToRight(System.Double)">
+            <summary>
+            【非対応】
+            ロボットを右に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.GoToLeft(System.Double)">
+            <summary>
+            【非対応】
+            ロボットを左に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.GoUp(System.Double)">
+            <summary>
+            【非対応】
+            ロボットを上に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.GoDown(System.Double)">
+            <summary>
+            【非対応】
+            ロボットを下に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.TurnX(System.Double)">
+            <summary>
+            【非対応】
+            X軸旋回。軸の根本から見て反時計周りが正の値。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.TurnY(System.Double)">
+            <summary>
+            【非対応】
+            Y軸旋回。軸の根本から見て反時計周りが正の値。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Z">
+            <summary>
+            【非対応】
+            Z座標[mm]。上下の位置。上が正の値、下が負の値。初めに置いている位置の座標を0とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AngleX">
+            <summary>
+            【非対応】
+            X軸の角度[度]。軸の根本から見て反時計周りが正の値。初めに向いている方向を0度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AngleY">
+            <summary>
+            【非対応】
+            Y軸の角度[度]。軸の根本から見て反時計周りが正の値。初めに向いている方向を0度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Longitude">
+            <summary>
+            【非対応】
+            経度[度]。10進数表記で扱う。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Latitude">
+            <summary>
+            【非対応】
+            緯度[度]。10進数表記で扱う。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Altitude">
+            <summary>
+            【非対応】
+            高度[m]。海面からの高さ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AzimuthAngle">
+            <summary>
+            【非対応】
+            方位角[度]。東を0度として、反時計回りを正の角度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AngularVelocityX">
+            <summary>
+            【非対応】
+            X軸の角速度[deg/s]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.AngularVelocityY">
+            <summary>
+            【非対応】
+            Y軸の角速度[deg/s]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OI">
+            <summary>
+            iRobot Create2 の Open Interface (コマンドとセンサデータへアクセスするためのインタフェース)。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.OpenInterface">
+            <summary>
+            iRobot Create2 の Open Interface (コマンドとセンサデータへアクセスするためのインタフェース)。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._RobotController">
+            <summary>ロボットコントローラ。</summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.#ctor(KobutanLib.Robots.Create2Controller)">
+            <summary>
+            OpenInterfaceClass のコンストラクタ。
+            </summary>
+            <param name="robotController">ロボットコントローラ。</param>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.BumpsWheeldrops">
+            <summary>バンパ・ホイールの生データ。パケットID 7。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RightBumper">
+            <summary>右バンパーが押されているか。押されていれば真。パケットID 7。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LeftBumper">
+            <summary>左バンパーが押されているか。押されていれば真。パケットID 7。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RightWheelDrop">
+            <summary>右ホイールが下がっているか。下がっていれば真。パケットID 7。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LeftWheelDrop">
+            <summary>左ホイールが下がっているか。下がっていれば真。パケットID 7。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Wall">
+            <summary>壁センサが壁を検知したか。近くに壁があれば真。パケットID 8。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffLeft">
+            <summary>左の崖センサ。崖(段差)を検知したら真。パケットID 9。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffFrontLeft">
+            <summary>前方左の崖センサ。崖(段差)を検知したら真。パケットID 10。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffFrontRight">
+            <summary>前方右の崖センサ。崖(段差)を検知したら真。パケットID 11。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffRight">
+            <summary>右の崖センサ。崖(段差)を検知したら真。パケットID 12。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.VirtualWall">
+            <summary>仮想壁検出器の状態。仮想壁を検知したら真。パケットID 13。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.WheelOvercurrents">
+            <summary>各ブラシホイールが回っているかの生データ。パケットID 14。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.WheelOvercurrentsSideBrush">
+            <summary>サイドブラシのホイールが回っているか。回っていたら真。パケットID 14。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.WheelOvercurrentsMainBrush">
+            <summary>メインブラシのホイールが回っているか。回っていたら真。パケットID 14。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.WheelOvercurrentsRightWheel">
+            <summary>右ホイールが回っているか。回っていたら真。パケットID 14。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.WheelOvercurrentsLeftWheel">
+            <summary>左ホイールが回っているか。回っていたら真。パケットID 14。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.DirtDetect">
+            <summary>汚れ検知センサーのレベル。0-255の値が返る。パケットID 15。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.InfraredCharacterOmni">
+            <summary>
+            ルンバの全方向受信機が現在受信している8ビットのIRキャラクタ。パケットID 17。
+            値0はキャラクタが受信されていないことを示す。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.InfraredCharacterLeft">
+            <summary>
+            ルンバの左側の受信機が現在受信している8ビットのIRキャラクタ。パケットID 52。
+            値0はキャラクタが受信されていないことを示す。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.InfraredCharacterRight">
+            <summary>
+            ルンバの右側の受信機が現在受信している8ビットのIRキャラクタ。パケットID 53。
+            値0はキャラクタが受信されていないことを示す。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Buttons">
+            <summary>各ボタンが押されているかの生データ。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CleanButton">
+            <summary>Clean ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.SpotButton">
+            <summary>Spot ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.DockButton">
+            <summary>Dock ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.MinuteButton">
+            <summary>Minute ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.HourButton">
+            <summary>Hour ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.DayButton">
+            <summary>Day ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.ScheduleButton">
+            <summary>Schedule ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.ClockButton">
+            <summary>Clock ボタンが押されているか。押されていれば真。パケットID 18。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Distance">
+            <summary>
+            前回参照してから進んだ距離[mm](-2147483648-2147483647)。パケットID 19。
+            左右のタイヤで進んだ距離を足して2で割った値が返る。後ろに進むと負の値となる。
+            int型拡張済み。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._Distance">
+            <summary>Distance プロパティを実装するための変数。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Angle">
+            <summary>
+            前回参照してから曲がった角度[度](-2147483648-2147483647)。パケットID 20。
+            左回転で正の値、右回転で負の値となる。
+            int型拡張済み。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._Angle">
+            <summary>Angle プロパティを実装するための変数。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.ChargingState">
+            <summary>充電の状態。パケットID 21。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Voltage">
+            <summary>バッテリーの電圧[mV](0-65535)。パケットID 22。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Current">
+            <summary>
+            バッテリに流れ込む、またはバッテリから流れ出す電流[mA](-32768-32767)。パケットID 23。
+            負の電流は、電流がバッテリから流れ出していることを示す。 
+            正の電流は、充電中など、電流がバッテリに流れていることを示す。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Temperature">
+            <summary>バッテリーの温度[℃](-128-127)。パケットID 24。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.BatteryCharge">
+            <summary>現在のバッテリー充電量[mAh](0-65535)。パケットID 25。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.BatteryCapacity">
+            <summary>バッテリーの推定充電容量[mAh](0-65535)。パケットID 26。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.WallSignal">
+            <summary>壁センサのシグナル強度(0-1023)。パケットID 27。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffLeftSignal">
+            <summary>左の崖センサのシグナル強度(0-4095)。パケットID 28。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffFrontLeftSignal">
+            <summary>前方左の崖センサのシグナル強度(0-4095)。パケットID 29。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffFrontRightSignal">
+            <summary>前方右の崖センサのシグナル強度(0-4095)。パケットID 30。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.CliffRightSignal">
+            <summary>右の崖センサのシグナル強度(0-4095)。パケットID 31。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.ChargingSourcesAvailable">
+            <summary>
+            利用可能な充電ソース(0-3)。対応するビットが1なら接続されている。パケットID 34。
+            最下位ビット：Internal Charger、
+            次のビット：Home Base。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.OIMode">
+            <summary>現在のOIモード。パケットID 35。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.SongNumber">
+            <summary>現在選ばれている曲(0-4)。パケットID 36。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.SongPlaying">
+            <summary>曲を演奏中か。演奏していれば真。パケットID 37。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.NumberOfStreamPackets">
+            <summary>データストリームパケットの数(0-108)。パケットID 38。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RequestedVelocity">
+            <summary>Drive コマンドにより最後に送られた速度。パケットID 39。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RequestedRadius">
+            <summary>Drive コマンドにより最後に送られた半径。パケットID 40。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RequestedRightVelocity">
+            <summary>Drive Direct コマンドにより最後に送られた右速度。パケットID 41。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RequestedLeftVelocity">
+            <summary>Drive Direct コマンドにより最後に送られた左速度。パケットID 42。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LeftEncoderCounts">
+            <summary>
+            左エンコーダカウント(-2147483648-2147483647)。パケットID 43。
+            1回転508.8カウント。int型拡張済み。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RightEncoderCounts">
+            <summary>
+            右エンコーダカウント(-2147483648-2147483647)。パケットID 44。
+            1回転508.8カウント。int型拡張済み。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumper">
+            <summary>各光バンパが押されているかの生データ。パケットID 45。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumperLeft">
+            <summary>左の光バンパーが押されているか。押されていれば真。パケットID 45。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumperFrontLeft">
+            <summary>前方左の光バンパーが押されているか。押されていれば真。パケットID 45。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumperCenterLeft">
+            <summary>中央左の光バンパーが押されているか。押されていれば真。パケットID 45。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumperCenterRight">
+            <summary>中央右の光バンパーが押されているか。押されていれば真。パケットID 45。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumperFrontRight">
+            <summary>前方右の光バンパーが押されているか。押されていれば真。パケットID 45。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumperRight">
+            <summary>右の光バンパーが押されているか。押されていれば真。パケットID 45。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumpLeftSignal">
+            <summary>左の光バンパーのシグナル強度(0-4095)。パケットID 46。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumpFrontLeftSignal">
+            <summary>前方左の光バンパーのシグナル強度(0-4095)。パケットID 47。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumpCenterLeftSignal">
+            <summary>中央左の光バンパーのシグナル強度(0-4095)。パケットID 48。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumpCenterRightSignal">
+            <summary>中央右の光バンパーのシグナル強度(0-4095)。パケットID 49。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumpFrontRightSignal">
+            <summary>前方右の光バンパーのシグナル強度(0-4095)。パケットID 50。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LightBumpRightSignal">
+            <summary>右の光バンパーのシグナル強度(0-4095)。パケットID 51。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.LeftMotorCurrent">
+            <summary>左ホイールモータに流れる電流[mA](-32768-32767)。パケットID 54。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.RightMotorCurrent">
+            <summary>右ホイールモータに流れる電流[mA](-32768-32767)。パケットID 55。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.MainBrushMotorCurrent">
+            <summary>メインブラシモータに流れる電流[mA](-32768-32767)。パケットID 56。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.SideBrushMotorCurrent">
+            <summary>サイドブラシモータに流れる電流[mA](-32768-32767)。パケットID 57。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Stasis">
+            <summary>
+            ロボットが前進している時に真を返すセンサ。
+            ロボットが旋回、後退しているとき、または運転していないときは、偽となる。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Unused1">
+            <summary>未使用1。（パケットID 16）</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Unused2">
+            <summary>未使用2。（パケットID 32）</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.OpenInterface.Unused3">
+            <summary>未使用3。（パケットID 33）</summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Start">
+            <summary>
+            OIを起動するためのコマンド。このコマンドは必ず、他のコマンドより前に送る必要がある。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Reset">
+            <summary>
+            このコマンドでは、あたかもバッテリーを取り外して再挿入したかのようにロボットをリセットする。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Stop">
+            <summary>
+            このコマンドはOIを停止する。 すべてのストリームが停止し、ロボットはコマンドに応答しなくなる。
+            ロボットの使用を終えたらこのコマンドを使用すること。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Baud(System.Int32)">
+            <summary>
+            ボーレートを変更するコマンド。起動時のデフォルトのボーレートは115200 bps。ボーレートは19200に変更可能。
+            ボーレートが変更されると、電源ボタンを押すかバッテリを取り外すことによってRoombaの電源が入れ直されるまで、
+            またはバッテリ電圧がプロセッサの動作に必要な最低値を下回るまで、ボーレートは変わらない。
+            このコマンドを送信してから100ms待ってから、新しいボーレートで追加のコマンドを送信する必要がある。
+            </summary>
+            <param name="baudRate">ボーレート。指定可能な値：300,600,1200,2400,4800,9600,14400,19200,28800,38400,57600,115200。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Safe">
+            <summary>
+            OIをセーフモードにするコマンド。
+            OIのモードについては、公式資料である
+            「iRobot® Create® 2 Open Interface (OI) Specification based on the iRobot® Roomba® 600」
+            を参照すること。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Full">
+            <summary>
+            OIをフルモードにするコマンド。
+            OIのモードについては、公式資料である
+            「iRobot® Create® 2 Open Interface (OI) Specification based on the iRobot® Roomba® 600」
+            を参照すること。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Clean">
+            <summary>
+            デフォルトのクリーニングモードを開始するコマンド。
+            このコマンドは、ルンバの洗浄ボタンを押すのと同様で、洗浄サイクルがすでに進行中の場合は一時停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Max">
+            <summary>
+            最大クリーニングモードを開始するコマンド。
+            このモードは、バッテリーがなくなるまでクリーニングされる。
+            このコマンドは、クリーニングサイクルがすでに進行中の場合、クリーニングサイクルを一時停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Spot">
+            <summary>
+            スポットクリーニングモードを開始するコマンド。
+            このコマンドはルンバの「スポット」ボタンを押すのと同様で、
+            クリーニングサイクルがすでに進行中の場合は一時停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.SeekDock">
+            <summary>
+            ドッキングビームに遭遇したときにドックに向かうように指示するコマンド。
+            このコマンドは、ルンバのドックボタンを押すのと同様で、
+            クリーニングサイクルがすでに進行中の場合は一時停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Power">
+            <summary>
+            ルンバの電源を切るコマンド。 
+            このコマンドを受け入れるには、OIをPassive、Safe、またはFullモードにする必要がある。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Schedule(KobutanLib.Robots.Create2Controller.Day[])">
+            <summary>
+            新しい掃除スケジュールを送るコマンド。
+            定期的なクリーニングを無効にするには、空の配列を与える。
+            </summary>
+            <param name="cleaningDays">掃除をする日にちをまとめた配列。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.SetDayTime(KobutanLib.Robots.Create2Controller.Day)">
+            <summary>
+            現在の曜日、時間を設定するコマンド。
+            </summary>
+            <param name="currentDay">現在の曜日、時間。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Drive(System.Int16,System.Int16)">
+            <summary>
+            Create2本体を移動させるコマンド。
+            </summary>
+            <param name="velocity">速度 [mm/s] (-500 ～ 500)。</param>
+            <param name="radius">
+            旋回半径 [mm] (-2000 ～ 2000)。ここで指定した長さの円周に沿うように曲がる。
+            0:直進、1:超信地旋回(反時計周り)、-1:超信地旋回(時計周り)
+            </param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.DriveDirect(System.Int16,System.Int16)">
+            <summary>
+            Create2本体を移動させるコマンド。
+            左右のモータスピードを設定することで移動する。
+            </summary>
+            <param name="rightVelocity">右の速度 [mm/s] (-500 ～ 500)。</param>
+            <param name="leftVelocity">左の速度 [mm/s] (-500 ～ 500)。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.DrivePWM(System.Int16,System.Int16)">
+            <summary>
+            Create2本体を移動させるコマンド。
+            PWMの値を設定することで移動する。
+            </summary>
+            <param name="rightPWM">右モータのPWM (-255 ～ 255)。</param>
+            <param name="leftPWM">左モータのPWM (-255 ～ 255)。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Motors(System.Boolean,System.Boolean,System.Boolean,System.Boolean,System.Boolean)">
+            <summary>
+            ブラシのモータを動かすコマンド。PWM=100%。
+            </summary>
+            <param name="sideBrush">サイドブラシのONOFF。</param>
+            <param name="vacuum">バキュームのONOFF。</param>
+            <param name="mainBrush">メインブラシのONOFF。</param>
+            <param name="sideBrushClockwise">サイドブラシが時計回りか。</param>
+            <param name="mainBrushDirection">メインブラシの方向。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.PWMMotors(System.SByte,System.SByte,System.Byte)">
+            <summary>
+            ブラシのモータを動かすコマンド。
+            PWMの値を設定することで動作する。
+            </summary>
+            <param name="mainBrushPWM">メインブラシのPWM(-127-127)。</param>
+            <param name="sideBrushPWM">サイドブラシのPWM(-127-127)。</param>
+            <param name="vacuumPWM">バキュームのPWM(0-127)。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.LEDs(System.Byte,System.Byte,System.Byte)">
+            <summary>
+            LEDの設定を行うコマンド。
+            </summary>
+            <param name="ledBits">
+            対象のLED。下位4ビットのON/OFFで指定する。
+            1(最下位ビット):Debris、2:Spot、3:Dock、4:Check Robot。
+            </param>
+            <param name="powerColor">LEDの色設定(0-255)。0:緑、255:赤、中間値：中間色(オレンジ、黄色など)。</param>
+            <param name="powerIntensity">LEDの光の強さ(0-255)。0:オフ、255:最大値。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.SchedulingLEDs(System.Byte,System.Byte)">
+            <summary>
+            スケジューリングLEDの設定を行うコマンド。
+            </summary>
+            <param name="weekdayLEDBits">
+            曜日表示関連のLEDの設定。下位7ビットのON/OFFで指定する。
+            1(最下位ビット):Sun、2:Mon、3:Tue、4:Wed、5:Thu、6:Fri、7:Sat。
+            </param>
+            <param name="schedulingLEDBits">
+            スケジューリング関連のLEDの設定。下位5ビットのON/OFFで指定する。
+            1(最下位ビット):Colon(:)、2:PM、3:AM、4:Clock、5:Schdule。
+            </param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.DigitLEDsRaw(System.Byte,System.Byte,System.Byte,System.Byte)">
+            <summary>
+            ルンバにある4つの7セグメントLEDを制御するコマンド。
+            どのビットがLEDのどの部分に対応するかについては、公式資料である
+            「iRobot® Create® 2 Open Interface (OI) Specification based on the iRobot® Roomba® 600」
+            を参照すること。
+            </summary>
+            <param name="digit3">桁3(0-255)。</param>
+            <param name="digit2">桁2(0-255)。</param>
+            <param name="digit1">桁1(0-255)。</param>
+            <param name="digit0">桁0(0-255)。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.PushButtons(KobutanLib.Robots.Create2Controller.Button)">
+            <summary>
+            ルンバのボタンを押すコマンド。ボタンは、1/6秒後に自動的に解除される。
+            </summary>
+            <param name="button">押すボタン。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.DigitLEDsASCII(System.String)">
+            <summary>
+            ASCII文字コードを使用して、ルンバの4つの7セグメントLEDの表示を行う。
+            どの文字に対応しているかについては、公式資料である
+            「iRobot® Create® 2 Open Interface (OI) Specification based on the iRobot® Roomba® 600」
+            を参照すること。
+            </summary>
+            <param name="str">表示する4桁の数字・アルファベット・記号(32-126)。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Song(System.Byte,KobutanLib.Robots.Note[])">
+            <summary>
+            このコマンドを使用すると、後で再生できる最大4つの曲をOIに指定できる。各曲は、曲番号に関連付けられる。
+            各曲には最大16の音符を含めることができる。各音符は、MIDI音符定義を使用する音符番号と、秒単位で指定された長さに関連付けられる。
+            音符等の詳細については、公式資料である
+            「iRobot® Create® 2 Open Interface (OI) Specification based on the iRobot® Roomba® 600」
+            を参照すること。
+            </summary>
+            <param name="songNumber">曲番号(0-4)。</param>
+            <param name="song">登録する曲。最大16の音符を含められる。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Play(System.Byte)">
+            <summary>
+            Songコマンドを使ってRoombaに追加された曲の中から、曲番号によって選んだ曲を再生するコマンド。
+            </summary>
+            <param name="songNumber">曲番号(0-4)。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Sensors(KobutanLib.Robots.Create2Controller.PacketID)">
+            <summary>
+            センサデータを送信するように要求するコマンド。
+            センサごとのIDについては、公式資料である
+            「iRobot® Create® 2 Open Interface (OI) Specification based on the iRobot® Roomba® 600」
+            を参照すること。
+            </summary>
+            <param name="packetID">パケットID。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.QueryList(KobutanLib.Robots.Create2Controller.PacketID[])">
+            <summary>
+            複数のセンサデータを送信するように要求するコマンド。
+            Sensorsコマンドと同様に、結果は1回返される。ロボットは指定した順序でセンサデータを返す。
+            </summary>
+            <param name="packetIDs">複数のパケットID。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.Stream(KobutanLib.Robots.Create2Controller.PacketID[])">
+            <summary>
+            データパケットのストリームを開始するコマンド。
+            要求されたパケットのリストは15ミリ秒ごとに送信される。
+            これは、Roombaがデータを更新するために使用するレートである。
+            </summary>
+            <param name="packetIDs">複数のパケットID。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.PauseResumeStream(System.Boolean)">
+            <summary>
+            要求されたパケットのリストをクリアせずにストリームを停止・再開するコマンド。
+            </summary>
+            <param name="startOrStop">真:再開、偽:停止。</param>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface.OVERFLOW">
+            <summary>オーバーフロー検知の境界値。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._LastValueOfLeftEncoder">
+            <summary>左エンコーダの最後の値。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._LastValueOfRightEncoder">
+            <summary>右エンコーダの最後の値。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._FirstUpdateFlag">
+            <summary>センサ更新初回フラグ。</summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.AddCommand(System.Byte[])">
+            <summary>
+            コマンド追加処理。
+            </summary>
+            <param name="commands">コマンド。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.UpdateSensorValue(System.Byte[])">
+            <summary>
+            センサ値の更新。
+            </summary>
+            <param name="sensorBuf">センサバッファ。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OpenInterface.CalculateRobotState">
+            <summary>
+            自己位置、速度などを計算する。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._Stopwatch">
+            <summary>センサデータアップデートの経過時間の計測用。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._LastRightEnc">
+            <summary>前回の右エンコーダ。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OpenInterface._LastLeftEnc">
+            <summary>前回の左エンコーダ。</summary>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.PacketID">
+            <summary>
+            センサデータ送信要求のためのコマンドで用いるパケットID。
+            センサごとのIDについては、公式資料である
+            「iRobot® Create® 2 Open Interface (OI) Specification based on the iRobot® Roomba® 600」
+            を参照すること。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group0">
+            <summary>グループ0。グループ1-3をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group1">
+            <summary>グループ1。パケットID 7-16をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group2">
+            <summary>グループ2。パケットID 17-20をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group3">
+            <summary>グループ3。パケットID 21-26をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group4">
+            <summary>グループ4。パケットID 27-34をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group5">
+            <summary>グループ5。パケットID 35-42をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group6">
+            <summary>グループ6。グループ1-5をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.BumpsWheeldrops">
+            <summary>BumpsWheeldropsのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Wall">
+            <summary>WallのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffLeft">
+            <summary>CliffLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffFrontLeft">
+            <summary>CliffFrontLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffFrontRight">
+            <summary>CliffFrontRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffRight">
+            <summary>CliffRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.VirtualWall">
+            <summary>VirtualWallのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Overcurrents">
+            <summary>OvercurrentsのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.DirtDetect">
+            <summary>DirtDetectのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Unused1">
+            <summary>Unused1のパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.IrOpcode">
+            <summary>IrOpcodeのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Buttons">
+            <summary>ButtonsのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Distance">
+            <summary>DistanceのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Angle">
+            <summary>AngleのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.ChargingState">
+            <summary>ChargingStateのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Voltage">
+            <summary>VoltageのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Current">
+            <summary>CurrentのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Temperature">
+            <summary>TemperatureのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.BatteryCharge">
+            <summary>BatteryChargeのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.BatteryCapacity">
+            <summary>BatteryCapacityのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.WallSignal">
+            <summary>WallSignalのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffLeftSignal">
+            <summary>CliffLeftSignalのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffFrontLeftSignal">
+            <summary>CliffFrontLeftSignalのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffFrontRightSignal">
+            <summary>CliffFrontRightSignalのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.CliffRightSignal">
+            <summary>CliffRightSignalのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Unused2">
+            <summary>Unused2のパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Unused3">
+            <summary>Unused3のパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.ChargerAvailable">
+            <summary>ChargerAvailableのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.OpenInterfaceMode">
+            <summary>OpenInterfaceModeのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.SongNumber">
+            <summary>SongNumberのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.SongPlaying">
+            <summary>SongPlayingのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.OiStreamNumPackets">
+            <summary>OiStreamNumPacketsのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Velocity">
+            <summary>VelocityのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Radius">
+            <summary>RadiusのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.VelocityRight">
+            <summary>VelocityRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.VelocityLeft">
+            <summary>VelocityLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.EncoderCountsLeft">
+            <summary>EncoderCountsLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.EncoderCountsRight">
+            <summary>EncoderCountsRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LightBumper">
+            <summary>LightBumperのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LightBumpLeft">
+            <summary>LightBumpLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LightBumpFrontLeft">
+            <summary>LightBumpFrontLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LightBumpCenterLeft">
+            <summary>LightBumpCenterLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LightBumpCenterRight">
+            <summary>LightBumpCenterRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LightBumpFrontRight">
+            <summary>LightBumpFrontRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LightBumpRight">
+            <summary>LightBumpRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.IrOpcodeLeft">
+            <summary>IrOpcodeLeftのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.IrOpcodeRight">
+            <summary>IrOpcodeRightのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.LeftMotorCurrent">
+            <summary>LeftMotorCurrentのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.RightMotorCurrent">
+            <summary>RightMotorCurrentのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.MainBrushCurrent">
+            <summary>MainBrushCurrentのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.SideBrushCurrent">
+            <summary>SideBrushCurrentのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Stasis">
+            <summary>StasisのパケットID。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group100">
+            <summary>グループ100。全てのパケットをまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group101">
+            <summary>グループ101。パケットID 43-58をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group106">
+            <summary>グループ106。パケットID 46-51をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.Group107">
+            <summary>グループ107。パケットID 54-58をまとめている。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.PacketID.None">
+            <summary>指定無し。</summary>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.Day">
+            <summary>
+            日付。Scheduleコマンド等で使用。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeek">
+            <summary>曜日。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Day.Hour">
+            <summary>時間(0-23)。</summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Create2Controller.Day.Minute">
+            <summary>分(0-59)。</summary>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum">
+            <summary>曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.None">
+            <summary>無し。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.Sunday">
+            <summary>日曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.Monday">
+            <summary>月曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.Tuesday">
+            <summary>火曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.Wednesday">
+            <summary>水曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.Thursday">
+            <summary>木曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.Friday">
+            <summary>金曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.Saturday">
+            <summary>土曜日。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum.All">
+            <summary>全ての曜日。</summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.Day.#ctor(KobutanLib.Robots.Create2Controller.Day.DayOfTheWeekEnum,System.Byte,System.Byte)">
+            <summary>
+            Day のコンストラクタ。
+            </summary>
+            <param name="dayOfTheWeek">曜日。</param>
+            <param name="hour">時間(0-23)。</param>
+            <param name="minute">分(0-59)。</param>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.ChargingState">
+            <summary>
+            充電の状態。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.ChargingState.NotCharging">
+            <summary>充電していない。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.ChargingState.ReconditioningCharging">
+            <summary>再調整充電。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.ChargingState.FullCharging">
+            <summary>フル充電。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.ChargingState.TrickleCharging">
+            <summary>細流充電。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.ChargingState.Waiting">
+            <summary>充電待ち。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.ChargingState.ChargingFaultCondition">
+            <summary>充電不良状態。</summary>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.OIMode">
+            <summary>
+            OIモード。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OIMode.Off">
+            <summary>Off モード。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OIMode.Passive">
+            <summary>Passive モード。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OIMode.Safe">
+            <summary>Safe モード。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.OIMode.Full">
+            <summary>Full モード。</summary>
+        </member>
+        <member name="T:KobutanLib.Robots.Create2Controller.Button">
+            <summary>
+            ボタンの種類。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Clean">
+            <summary>Cleanボタン。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Spot">
+            <summary>Spotボタン。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Dock">
+            <summary>Dockボタン。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Minute">
+            <summary>Minuteボタン。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Hour">
+            <summary>Hourボタン。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Day">
+            <summary>Dayボタン。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Schedule">
+            <summary>Scheduleボタン。</summary>
+        </member>
+        <member name="F:KobutanLib.Robots.Create2Controller.Button.Clock">
+            <summary>Clockボタン。</summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OnConnected(System.Object,KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            接続完了時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OnDisconnecting(System.Object,KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            切断開始時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OnDataReceived(System.Object,KobutanLib.Communication.DataReceivedEventArgs)">
+            <summary>
+            データ受信時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.OnDataSending(System.Object,KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            データ送信時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.Create2Controller.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Robots.RobotController">
+            <summary>
+            ロボット操作クラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.RobotController._Communication">
+            <summary>
+            ロボットとの通信。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.RobotController._ErrorFlag">
+            <summary>
+            エラー発生フラグ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.RobotController._SyncStartStop">
+            <summary>
+            開始・停止の同期。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.RobotController._Actived">
+            <summary>
+            活性化されているか。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.RobotController._Disposed">
+            <summary>
+            破棄済みフラグ。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.#ctor(KobutanLib.Communication.BaseCommunication)">
+            <summary>
+            RobotControllerクラスのインスタンス化を行う。
+            </summary>
+            <param name="communication">ロボットとの通信。通信の接続や設定は外部に任せる。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.InitializeRobotController">
+            <summary>
+            ロボット操作の初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.FinalizeRobotController">
+            <summary>
+            ロボット操作の終了処理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.CommonAPIChecker">
+            <summary>
+            ロボット共通の機能のうち、実装されているものと、そうでないものを見分ける。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Robots.RobotController.CommonAPICheckerClass">
+            <summary>
+            ロボット共通の機能のうち、実装されているものと、そうでないものを見分ける。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Robots.RobotController.CommonAPICheckerClass._RobotController">
+            <summary>ロボットコントローラ。</summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.CommonAPICheckerClass.#ctor(KobutanLib.Robots.RobotController)">
+            <summary>
+            CommonAPICheckerClass のコンストラクタ。
+            </summary>
+            <param name="robotController">ロボットコントローラ。</param>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.CommonAPICheckerClass.Item(System.String)">
+            <summary>
+            メソッド名、プロパティ名から、その機能が実装されているか調べるためのインデクサ。
+            </summary>
+            <param name="funcName">メソッド名 or プロパティ名。</param>
+            <returns>実装されているかどうか。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.MoveOnCircle(System.Double,System.Double)">
+            <summary>
+            ロボットを平面移動させる。指定した半径の円に沿うように動く。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+            <param name="radius">旋回半径 [mm]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.MoveToDirection(System.Double,System.Double,System.Double)">
+            <summary>
+            ロボットを指定した方向に移動させる。正面を基準とする偏角に進む。
+            </summary>
+            <param name="velocity">速度[mm/s]。</param>
+            <param name="direction">方向[度]。正面を0度として、左側を正の角度とする。</param>
+            <param name="direction2">方向[度]。正面を0度として、上側を正の角度とする。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.GoForward(System.Double)">
+            <summary>
+            ロボットを前進させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.GoBackward(System.Double)">
+            <summary>
+            ロボットを後退させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.GoToRight(System.Double)">
+            <summary>
+            ロボットを右に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.GoToLeft(System.Double)">
+            <summary>
+            ロボットを左に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.GoUp(System.Double)">
+            <summary>
+            ロボットを上に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.GoDown(System.Double)">
+            <summary>
+            ロボットを下に移動させる。
+            </summary>
+            <param name="velocity">速度 [mm/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.TurnLeft(System.Double)">
+            <summary>
+            左旋回。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.TurnRight(System.Double)">
+            <summary>
+            右旋回。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.TurnX(System.Double)">
+            <summary>
+            X軸旋回。軸の根本から見て反時計周りが正の値。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.TurnY(System.Double)">
+            <summary>
+            Y軸旋回。軸の根本から見て反時計周りが正の値。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.TurnZ(System.Double)">
+            <summary>
+            Z軸旋回。軸の根本から見て反時計周りが正の値。
+            </summary>
+            <param name="angularVelocity">角速度 [deg/s]。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.Stop">
+            <summary>
+            ロボットの動きを止める。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.ResetState">
+            <summary>
+            ロボットの内部状態をリセットする。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.GetDistanceToObstacle(System.Double,System.Double)">
+            <summary>
+            指定した方向にある障害物との距離を返す。
+            </summary>
+            <param name="direction">方向[度]。正面を0度として、左側を正の角度とする。</param>
+            <param name="direction2">方向[度]。正面を0度として、上側を正の角度とする。</param>
+            <returns>障害物との距離[mm]</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.DetectCollision">
+            <summary>
+            衝突検知を行う。
+            </summary>
+            <returns>どこかで衝突しているか。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.DetectCollision(System.Double,System.Double)">
+            <summary>
+            指定している方向について衝突検知を行う。
+            </summary>
+            <param name="direction">方向[度]。正面を0度として、左側を正の角度とする。</param>
+            <param name="direction2">方向[度]。正面を0度として、上側を正の角度とする。</param>
+            <returns>指定した方向で衝突しているか。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.IsButtonPush(System.Int32)">
+            <summary>
+            指定したIDのボタンが押されているかどうか。
+            使用できるボタンはユーザが自由にできるもののみ。
+            </summary>
+            <param name="buttonID">ボタンのID。</param>
+            <returns>ボタン押下の真偽値。</returns>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.SetLed(System.Int32,System.UInt32)">
+            <summary>
+            指定したIDのLEDの設定を行う。
+            </summary>
+            <param name="LedID">対象とするLED。</param>
+            <param name="colorAndPower">上位3バイト=RGB、下位1バイト=光の強さ。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.PlaySound(KobutanLib.Robots.Note[])">
+            <summary>
+            曲（音符の集合）を再生する。
+            </summary>
+            <param name="song">再生する曲。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.WriteText(System.String)">
+            <summary>
+            与えられたテキストをロボットに表示。
+            </summary>
+            <param name="text">表示するテキスト。</param>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.X">
+            <summary>
+            X座標[mm]。左右の位置。右が正の値、左が負の値。初めに置いている位置の座標を0とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Y">
+            <summary>
+            Y座標[mm]。前後の位置。前が正の値、後が負の値。初めに置いている位置の座標を0とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Z">
+            <summary>
+            Z座標[mm]。上下の位置。上が正の値、下が負の値。初めに置いている位置の座標を0とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Angle">
+            <summary>
+            角度[度]。基準となる軸はロボットごとに異なる。軸の根本から見て反時計周りが正の値。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AngleX">
+            <summary>
+            X軸の角度[度]。軸の根本から見て反時計周りが正の値。初めに向いている方向を0度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AngleY">
+            <summary>
+            Y軸の角度[度]。軸の根本から見て反時計周りが正の値。初めに向いている方向を0度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AngleZ">
+            <summary>
+            Z軸の角度[度]。軸の根本から見て反時計周りが正の値。初めに向いている方向を90度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Longitude">
+            <summary>
+            経度[度]。10進数表記で扱う。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Latitude">
+            <summary>
+            緯度[度]。10進数表記で扱う。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Altitude">
+            <summary>
+            高度[m]。海面からの高さ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AzimuthAngle">
+            <summary>
+            方位角[度]。東を0度として、反時計回りを正の角度とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Velocity">
+            <summary>
+            速度[mm/s]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AngularVelocity">
+            <summary>
+            角速度[deg/s]。基準となる軸はロボットごとに異なる。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AngularVelocityX">
+            <summary>
+            X軸の角速度[deg/s]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AngularVelocityY">
+            <summary>
+            Y軸の角速度[deg/s]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.AngularVelocityZ">
+            <summary>
+            Z軸の角速度[deg/s]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.RemainingBatteryCapacity">
+            <summary>
+            バッテリー残量[%]。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.RobotController.Temperature">
+            <summary>
+            温度[℃]。
+            </summary>
+        </member>
+        <member name="E:KobutanLib.Robots.RobotController.Initialized">
+            <summary>
+            初期化完了時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnInitialized(System.EventArgs)">
+            <summary>
+            初期化完了時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Robots.RobotController.Finalizing">
+            <summary>
+            終了処理開始時に発生するイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnFinalizing(System.EventArgs)">
+            <summary>
+            終了処理開始時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="E:KobutanLib.Robots.RobotController.CommunicationErrorOccurred">
+            <summary>
+            通信エラー発生時のイベント。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnCommunicationErrorOccurred(KobutanLib.Communication.CommunicationErrorEventArgs)">
+            <summary>
+            通信エラー発生時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnConnected(System.Object,KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            接続完了時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnDisconnecting(System.Object,KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            切断開始時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnDataReceived(System.Object,KobutanLib.Communication.DataReceivedEventArgs)">
+            <summary>
+            データ受信時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnDataSending(System.Object,KobutanLib.Communication.CommunicationEventArgs)">
+            <summary>
+            データ送信時のイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.OnErrorOccurred(System.Object,KobutanLib.Communication.CommunicationErrorEventArgs)">
+            <summary>
+            エラーが発生した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.Dispose">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.RobotController.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.Robots.Note">
+            <summary>
+            音符。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Note.Number">
+            <summary>
+            ノート番号。MIDI準拠。休符は255とする。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Robots.Note.Duration">
+            <summary>
+            音符の長さ（1/64秒）。例えば、0.5秒の長さの音符の値は32にする。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Robots.Note.#ctor(System.Byte,System.Byte)">
+            <summary>
+            Noteのコンストラクタ。
+            </summary>
+            <param name="number">ノート番号。MIDI準拠。休符は255とする。</param>
+            <param name="duration">音符の長さ（1/64秒）。例えば、0.5秒の長さの音符の値は32にする。</param>
+        </member>
+        <member name="T:KobutanLib.Management.IApplicationManager">
+            <summary>
+            アプリケーション管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IApplicationManager.AppList">
+            <summary>
+            アプリケーションリスト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IApplicationManager.UserLibList">
+            <summary>
+            ユーザライブラリリスト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IApplicationManager.AppFolderPath">
+            <summary>
+            アプリケーションフォルダのパス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IApplicationManager.UserLibFolderPath">
+            <summary>
+            ユーザライブラリフォルダのパス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IApplicationManager.TempFolderPath">
+            <summary>
+            一時フォルダのパス。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.UpdateAppList">
+            <summary>
+            アプリケーションリストの更新。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.LoadUserLib">
+            <summary>
+            ユーザライブラリのロード。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.DeleteAllTempFiles">
+            <summary>
+            全ての一時ファイルの削除。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.StartWatchingAppFolder">
+            <summary>
+            アプリケーションフォルダの監視を開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.StopWatchingAppFolder">
+            <summary>
+            アプリケーションフォルダの監視を停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.GetRobotKindName(KobutanLib.RobotKind)">
+            <summary>
+            ロボットの種類に応じた名前を取得。
+            </summary>
+            <param name="robotKind">ロボットの種類。</param>
+            <returns>名前。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.GetIconInfo(System.String)">
+            <summary>
+            指定した名前のアイコンを取得。
+            </summary>
+            <param name="iconName">アイコンの名前。</param>
+            <returns>アイコン情報。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IApplicationManager.SetIconInfo(System.String,KobutanLib.Management.IconInfo)">
+            <summary>
+            指定した名前のアイコンを設定。
+            </summary>
+            <param name="iconName">アイコンの名前。</param>
+            <param name="iconInfo">アイコン情報。</param>
+        </member>
+        <member name="E:KobutanLib.Management.IApplicationManager.AppListUpdated">
+            <summary>
+            アプリケーションリストの更新時に発生するイベント。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Management.AssemblyInfo">
+            <summary>
+            アセンブリ情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AssemblyInfo.Name">
+            <summary>
+            アセンブリファイルの名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AssemblyInfo.FullName">
+            <summary>
+            アセンブリファイル名のパスを含んだ名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AssemblyInfo.Assembly">
+            <summary>
+            アセンブリ情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AssemblyInfo.LastWriteTime">
+            <summary>
+            更新日時。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.AssemblyInfo.#ctor(System.String,System.String,System.Reflection.Assembly,System.DateTime)">
+            <summary>
+            アセンブリ情報。
+            </summary>
+            <param name="name">アセンブリファイルの名前。</param>
+            <param name="fullName">アセンブリ名のパスを含んだ名前。</param>
+            <param name="assembly">アセンブリ情報。</param>
+            <param name="dateTime">更新日時。</param>
+        </member>
+        <member name="T:KobutanLib.Management.AppInfo">
+            <summary>
+            アプリケーション情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppInfo.AppName">
+            <summary>
+            アプリケーションの名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppInfo.FullName">
+            <summary>
+            アプリケーションの正式な名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppInfo.AppDescription">
+            <summary>
+            アプリケーションの説明。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppInfo.AppIcon">
+            <summary>
+            アプリケーションのアイコン。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppInfo.TargetRobots">
+            <summary>
+            対象とするロボット。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppInfo.AssemblyInfo">
+            <summary>
+            アセンブリ情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppInfo.Type">
+            <summary>
+            型情報。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.AppInfo.#ctor(System.String,System.String,System.String,KobutanLib.Management.IconInfo,KobutanLib.RobotKind[],KobutanLib.Management.AssemblyInfo,System.Type)">
+            <summary>
+            アプリケーション情報。
+            </summary>
+            <param name="appName">アプリケーションの名前。</param>
+            <param name="fullName">アプリケーションの正式な名前。</param>
+            <param name="description">アプリケーションの説明。</param>
+            <param name="icon">アプリケーションのアイコン。</param>
+            <param name="targetRobots">対象とするロボット。</param>
+            <param name="asmInfo">アセンブリ情報。</param>
+            <param name="type">型情報。</param>
+        </member>
+        <member name="T:KobutanLib.Management.AppGroupInfo">
+            <summary>
+            アプリケーショングループ情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppGroupInfo.GroupName">
+            <summary>
+            グループの名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppGroupInfo.Children">
+            <summary>
+            グループに属している要素。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.AppGroupInfo.#ctor(System.String,System.String,System.String,KobutanLib.Management.IconInfo,KobutanLib.RobotKind[],KobutanLib.Management.AssemblyInfo,System.Type,System.String)">
+            <summary>
+            アプリケーショングループ情報。
+            </summary>
+            <param name="appName">アプリケーションの名前。</param>
+            <param name="fullName">アプリケーションの正式な名前。</param>
+            <param name="description">アプリケーションの説明。</param>
+            <param name="icon">アプリケーションのアイコン。</param>
+            <param name="targetRobots">対象とするロボット。</param>
+            <param name="asmInfo">アセンブリ情報。</param>
+            <param name="type">型情報。</param>
+            <param name="groupName">グループの名前。</param>
+        </member>
+        <member name="M:KobutanLib.Management.AppGroupInfo.MargeAppInfo(KobutanLib.Management.AppInfo)">
+            <summary>
+            グループ情報にアプリケーション情報を取り込む。
+            </summary>
+            <param name="info"></param>
+        </member>
+        <member name="T:KobutanLib.Management.IconInfo">
+            <summary>
+            アイコン情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IconInfo.Icon">
+            <summary>
+            アイコン。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IconInfo.Image">
+            <summary>
+            画像。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IconInfo.Name">
+            <summary>
+            名前。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IconInfo.#ctor(System.Drawing.Icon,System.Drawing.Bitmap)">
+            <summary>
+            アイコン情報。
+            </summary>
+            <param name="icon">アイコン。</param>
+            <param name="image">画像。</param>
+        </member>
+        <member name="T:KobutanLib.Management.IManagerCommon">
+            <summary>
+            各マネージャの共通のインターフェース。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IManagerCommon.SetKobutanSystem(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            こぶたんシステム受け渡し用。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの参照。</param>
+        </member>
+        <member name="M:KobutanLib.Management.IManagerCommon.FinalizeManager">
+            <summary>
+            マネージャの終了処理。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Management.IDeviceManager">
+            <summary>
+            デバイス管理。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IDeviceManager.StartDirectInputManager">
+            <summary>
+            Direct Input マネージャを開始する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IDeviceManager.StopDirectInputManager">
+            <summary>
+            Direct Input マネージャを停止する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IDeviceManager.UpdateDeviceList">
+            <summary>
+            デバイス一覧のアップデート。
+            </summary>
+        </member>
+        <member name="E:KobutanLib.Management.IDeviceManager.DeviceAttachmentStateChanged">
+            <summary>
+            デバイスの接続状態が変化した際に発行されるイベント。
+            </summary>
+        </member>
+        <member name="E:KobutanLib.Management.IDeviceManager.DeviceListUpdated">
+            <summary>
+            デバイス一覧が更新された際に発行されるイベント。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Management.IInstanceManager">
+            <summary>
+            インスタンス管理。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IInstanceManager.GetInstanceList(System.String)">
+            <summary>
+            指定したアプリケーション名のインスタンスリストを取得。
+            </summary>
+            <param name="appFullName">アプリケーションのフルネーム。</param>
+            <returns>インスタンスリスト。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IInstanceManager.GetInstance(System.String)">
+            <summary>
+            指定したインスタンス名のアプリケーションインスタンスを取得。
+            </summary>
+            <param name="instanceName">インスタンス名。</param>
+            <returns>アプリケーションのインスタンス。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IInstanceManager.GetInstantiatedAppNames">
+            <summary>
+            インスタンス化済みのアプリケーション名を取得。
+            </summary>
+            <returns>アプリケーションのフルネーム。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IInstanceManager.GetDefaultInstanceName(KobutanLib.Management.AppInfo)">
+            <summary>
+            アプリケーションに対するデフォルトのインスタンス名を取得。
+            </summary>
+            <param name="appInfo">アプリケーション情報。</param>
+            <returns>デフォルトのインスタンス名。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IInstanceManager.CreateApp(KobutanLib.Management.InstanceInfo)">
+            <summary>
+            アプリケーションのインスタンス化を行い、リストに追加する。
+            </summary>
+            <param name="instanceInfo">インスタンス情報。</param>
+            <returns>アプリケーションのインスタンス。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IInstanceManager.DestroyApp(KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーションのインスタンスを破棄し、リストから外す。
+            </summary>
+            <param name="app">アプリケーションのインスタンス。</param>
+        </member>
+        <member name="E:KobutanLib.Management.IInstanceManager.AppCreated">
+            <summary>
+            アプリケーションのインスタンス化後に発生するイベント。
+            </summary>
+        </member>
+        <member name="E:KobutanLib.Management.IInstanceManager.AppDestroying">
+            <summary>
+            アプリケーションのインスタンスの破棄前に発生するイベント。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Management.InstanceInfo">
+            <summary>
+            インスタンス情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.InstanceInfo.Name">
+            <summary>
+            名前。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.InstanceInfo.AppInfo">
+            <summary>
+            アプリケーション情報。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.InstanceInfo.CommunicationSetting">
+            <summary>
+            通信設定。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.InstanceInfo.IsEnabled">
+            <summary>
+            有効化されているか。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.InstanceInfo.#ctor(System.String,KobutanLib.Management.AppInfo,KobutanLib.Management.CommunicationSetting)">
+            <summary>
+            インスタンス情報。
+            </summary>
+            <param name="name">名前。</param>
+            <param name="appInfo">アプリケーション情報。</param>
+            <param name="communicationSetting">通信設定。</param>
+        </member>
+        <member name="T:KobutanLib.Management.AppEventHandler">
+            <summary>
+            アプリケーション関連のイベントを処理するメソッドのデリゲート。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.Management.AppEventArgs">
+            <summary>
+            AppEventHandlerのイベントデータを格納するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.AppEventArgs.KobutanApp">
+            <summary>関係するアプリケーション。</summary>
+        </member>
+        <member name="M:KobutanLib.Management.AppEventArgs.#ctor(KobutanLib.Management.KobutanSystem,KobutanLib.KobutanApp)">
+            <summary>
+            AppEventArgs クラスのコンストラクタ。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの機能利用するためのインタフェースを集めたクラス。</param>
+            <param name="kobutanApp">関係するアプリケーション。</param>
+        </member>
+        <member name="T:KobutanLib.Management.ICommunicationManager">
+            <summary>
+            通信管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.ICommunicationManager.SerialPortNames">
+            <summary>
+            利用可能なシリアルポート名の一覧。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.ICommunicationManager.DefaultTCPSettingText">
+            <summary>
+            デフォルトのTCP設定テキスト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.ICommunicationManager.DefaultUDPSettingText">
+            <summary>
+            デフォルトのUDP設定テキスト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.ICommunicationManager.AcceptedTCPCommunications">
+            <summary>
+            サーバで受け入れたTCP通信の一覧。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.ICommunicationManager.UpdateSerialPortNames">
+            <summary>
+            シリアルポート名の一覧を更新する。
+            </summary>
+            <returns>シリアルポート名一覧。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.ICommunicationManager.GetCommunicationKindName(KobutanLib.Management.CommunicationKind)">
+            <summary>
+            通信の種類に応じた名前を取得。
+            </summary>
+            <param name="communicationKind">通信の種類。</param>
+            <returns>名前。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.ICommunicationManager.CreateCommunication(KobutanLib.Management.CommunicationSetting)">
+            <summary>
+            通信設定を基に通信クラスのインスタンスを生成する。
+            </summary>
+            <param name="setting">通信設定。</param>
+            <returns>通信クラスのインスタンス。</returns>
+        </member>
+        <member name="E:KobutanLib.Management.ICommunicationManager.SerialPortNamesUpdated">
+            <summary>
+            アプリケーションリストの更新時に発生するイベント。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Management.CommunicationSetting">
+            <summary>
+            通信設定。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.CommunicationSetting.Kind">
+            <summary>
+            通信の種類。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.CommunicationSetting.SettingText">
+            <summary>
+            接続先設定のテキスト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.CommunicationSetting.TargetRobot">
+            <summary>
+            対象のロボット。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.CommunicationSetting.#ctor(KobutanLib.Management.CommunicationKind,System.String,KobutanLib.RobotKind)">
+            <summary>
+            通信設定。
+            </summary>
+            <param name="kind">通信の種類。</param>
+            <param name="settingText">接続先設定のテキスト。</param>
+            <param name="targetRobot">対象のロボット。</param>
+        </member>
+        <member name="T:KobutanLib.Management.CommunicationKind">
+            <summary>
+            通信の種類。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Management.CommunicationKind.None">
+            <summary>通信無し。</summary>
+        </member>
+        <member name="F:KobutanLib.Management.CommunicationKind.Serial">
+            <summary>シリアル通信。</summary>
+        </member>
+        <member name="F:KobutanLib.Management.CommunicationKind.TCP">
+            <summary>TCP/IP通信。</summary>
+        </member>
+        <member name="F:KobutanLib.Management.CommunicationKind.UDP">
+            <summary>UDP/IP通信。</summary>
+        </member>
+        <member name="T:KobutanLib.Management.IFormManager">
+            <summary>
+            フォーム管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IFormManager.MainForm">
+            <summary>
+            メインフォーム。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IFormManager.UIThread">
+            <summary>
+            UIスレッド。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.IFormManager.AutoDestroyInstanceFormFlag">
+            <summary>
+            フォームを閉じるときに、自動でインスタンスを破棄するか決定するフラグ。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.IFormManager.ShowSelectAppForm">
+            <summary>
+            アプリケーション選択フォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IFormManager.ShowInstanceListForm">
+            <summary>
+            インスタンスリストフォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IFormManager.ShowDeviceForm">
+            <summary>
+            デバイスフォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IFormManager.ShowDebugForm">
+            <summary>
+            デバッグフォームを開く。
+            </summary>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IFormManager.ShowOthreForm(System.Type)">
+            <summary>
+            その他フォームを開く。
+            </summary>
+            <param name="type">開くフォームの型情報。</param>
+            <returns>開いたフォーム。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IFormManager.ShowAppInstanceForm(KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーションインスタンス用のMDIウィンドウを表示する。。
+            </summary>
+            <param name="app">アプリケーションインスタンス。</param>
+            <returns>対応するフォーム。</returns>
+        </member>
+        <member name="M:KobutanLib.Management.IFormManager.GetAppInstanceForm(KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーションインスタンス用のMDIウィンドウを取得する。
+            </summary>
+            <param name="app">アプリケーションインスタンス。</param>
+            <returns>対応するフォーム。</returns>
+        </member>
+        <member name="T:KobutanLib.Management.ISystemConsole">
+            <summary>
+            システムコンソール。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Management.KobutanSystem">
+            <summary>
+            こぶたんシステムの機能利用するためのインタフェースを集めたクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.ApplicationManager">
+            <summary>
+            アプリケーション管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.InstanceManager">
+            <summary>
+            インスタンス管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.SystemConsole">
+            <summary>
+            コンソール。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.FormManager">
+            <summary>
+            フォーム管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.CommunicationManager">
+            <summary>
+            通信管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.DeviceManager">
+            <summary>
+            デバイス管理。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.GlobalObjects">
+            <summary>
+            グローバルなオブジェクト群。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystem.LoadedAssemblies">
+            <summary>
+            ロード済みアセンブリの一覧。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.KobutanSystem.#ctor(KobutanLib.Management.IApplicationManager,KobutanLib.Management.IInstanceManager,KobutanLib.Management.ISystemConsole,KobutanLib.Management.IFormManager,KobutanLib.Management.ICommunicationManager,KobutanLib.Management.IDeviceManager)">
+            <summary>
+            こぶたんシステムの機能利用するためのインタフェースを集めたクラス。
+            </summary>
+            <param name="applicationManager">アプリケーション管理。</param>
+            <param name="instanceManager">インスタンス管理。</param>
+            <param name="systemConsole">コンソール。</param>
+            <param name="formManager">フォーム管理。</param>
+            <param name="communicationManager">通信管理。</param>
+            <param name="deviceManager">デバイス管理。</param>
+        </member>
+        <member name="M:KobutanLib.Management.KobutanSystem.InitializeKobutan">
+            <summary>
+            こぶたんの初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.KobutanSystem.FinalizeKobutan">
+            <summary>
+            こぶたんの終了処理。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Management.KobutanSystem.IAppInitializer">
+            <summary>
+            アプリケーションの初期化を行うインターフェース。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Management.KobutanSystem.IAppInitializer.SetInstanceInfo(KobutanLib.KobutanApp,KobutanLib.Management.InstanceInfo)">
+            <summary>
+            アプリケーションに関する情報を初期化する。
+            </summary>
+            <param name="app">アプリケーション。</param>
+            <param name="instanceInfo">インスタンス情報。</param>
+        </member>
+        <member name="M:KobutanLib.Management.KobutanSystem.KobutanLib#Management#KobutanSystem#IAppInitializer#SetInstanceInfo(KobutanLib.KobutanApp,KobutanLib.Management.InstanceInfo)">
+            <summary>
+            アプリケーションに関する情報を初期化する。
+            </summary>
+            <param name="app">アプリケーション。</param>
+            <param name="instanceInfo">インスタンス情報。</param>
+        </member>
+        <member name="T:KobutanLib.Management.KobutanSystemEventHandler">
+            <summary>
+            こぶたんシステム関連のイベントを処理するメソッドのデリゲート。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.Management.KobutanSystemEventArgs">
+            <summary>
+            KobutanSystemEventHandlerのイベントデータを格納するクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Management.KobutanSystemEventArgs.KobutanSystem">
+            <summary>こぶたんシステムの機能利用するためのインタフェースを集めたクラス。</summary>
+        </member>
+        <member name="M:KobutanLib.Management.KobutanSystemEventArgs.#ctor(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            KobutanSystemEventArgs クラスのコンストラクタ。
+            </summary>
+            <param name="kobutanSystem">こぶたんシステムの機能利用するためのインタフェースを集めたクラス。</param>
+        </member>
+        <member name="T:KobutanLib.Screens.BaseScreen">
+            <summary>
+            アプリケーション画面関連のベースクラス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Screens.BaseScreen.App">
+            <summary>
+            アプリケーションへの参照。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Screens.BaseScreen.ScreenName">
+            <summary>
+            画面名。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.BaseScreen.#ctor">
+            <summary>
+            デザイナ表示用。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.BaseScreen.#ctor(KobutanLib.KobutanApp)">
+            <summary>
+            アプリケーション画面関連のベースクラス。
+            </summary>
+            <param name="app">アプリケーションへの参照。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.BaseScreen.FinalizeScreen">
+            <summary>
+            画面を閉じる際に実行する終了処理。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Screens.BaseScreen.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.BaseScreen.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.BaseScreen.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Screens.ConsoleScreen">
+            <summary>
+            コンソール画面。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Screens.ConsoleScreen.WRITTING_LIMIT">
+            <summary>
+            一度の更新までに書き込みできる回数。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Screens.ConsoleScreen._WrittingLimitCount">
+            <summary>
+            書き込み制限のカウント。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Screens.ConsoleScreen._WrittenTextQueue">
+            <summary>
+            書き込まれたテキストを保存するためのキュー。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.#ctor">
+            <summary>
+            コンソール画面。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.#ctor(KobutanLib.KobutanApp)">
+            <summary>
+            コンソール画面。
+            </summary>
+            <param name="app">アプリケーションへの参照。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.App_TextWritten(System.Object,KobutanLib.KobutanApp.TextEventArgs)">
+            <summary>
+            アプリケーションからテキスト書き込みされた際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.App_LogCleared(System.Object,KobutanLib.KobutanApp.TextEventArgs)">
+            <summary>
+            ログがクリアされた際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen._UpdatingTextTimer_Tick(System.Object,System.EventArgs)">
+            <summary>
+            更新タイマが一定時間経過するごとに実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen._InputButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            入力ボタンが押された際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen._InputTextBox_KeyDown(System.Object,System.Windows.Forms.KeyEventArgs)">
+            <summary>
+            入力用テキストでキーが押された際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen._InputTextBox_TextChanged(System.Object,System.EventArgs)">
+            <summary>
+            入力用テキストの内容が変化した際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.InputText(System.String)">
+            <summary>
+            テキストの入力。
+            </summary>
+            <param name="text">テキスト。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.FinalizeScreen">
+            <summary>
+            画面を閉じる際に実行する終了処理。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Screens.ConsoleScreen.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ConsoleScreen.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Screens.ExecutionScreen">
+            <summary>
+            アプリ実行画面。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.#ctor">
+            <summary>
+            アプリ実行画面。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.#ctor(KobutanLib.KobutanApp)">
+            <summary>
+            アプリ実行画面。
+            </summary>
+            <param name="app">アプリケーションへの参照。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.App_AppInitialized(System.Object,System.EventArgs)">
+            <summary>
+            アプリケーション初期化後に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.App_AppFinalized(System.Object,System.EventArgs)">
+            <summary>
+            アプリケーション終了処理後に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.InformationScreen_Load(System.Object,System.EventArgs)">
+            <summary>
+            フォームが読み込まれた際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen._StartButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            開始ボタンが押された際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen._StopButton_Click(System.Object,System.EventArgs)">
+            <summary>
+            停止ボタンが押された際に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント発生元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.FinalizeScreen">
+            <summary>
+            画面を閉じる際に実行する終了処理。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Screens.ExecutionScreen.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:KobutanLib.Screens.ExecutionScreen.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+    </members>
+</doc>

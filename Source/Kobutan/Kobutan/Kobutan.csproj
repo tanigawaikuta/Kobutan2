@@ -1,0 +1,302 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\..\..\ExtLib\Packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\build\Microsoft.CodeAnalysis.Analyzers.props" Condition="Exists('..\..\..\ExtLib\Packages\Microsoft.CodeAnalysis.Analyzers.2.9.4\build\Microsoft.CodeAnalysis.Analyzers.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{2FCF1BF4-D101-4CF4-BE59-E697C4FEAD57}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>Kobutan</RootNamespace>
+    <AssemblyName>Kobutan</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>false</Deterministic>
+    <TargetFrameworkProfile />
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Test\TestSpace\</OutputPath>
+    <IntermediateOutputPath>..\..\..\Obj\Kobutan\Kobutan\Debug\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\Test\TestSpace\Kobutan.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Bin\</OutputPath>
+    <IntermediateOutputPath>..\..\..\Obj\Kobutan\Kobutan\Release\</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\Bin\Kobutan.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Resources\Kobutan.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Azuki, Version=1.7.13.8929, Culture=neutral, PublicKeyToken=46b77eb7f2d82aba, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\ExtLib\Azuki-1.7.13\package\Azuki.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Web.Extensions" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Management\ApplicationManager.cs" />
+    <Compile Include="Management\CommunicationManager.cs" />
+    <Compile Include="Management\DeviceManager.cs" />
+    <Compile Include="Management\FormManager.cs" />
+    <Compile Include="Management\InstanceManager.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Settings.cs" />
+    <Compile Include="SubForms\MDIAppInstanceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\MDIAppInstanceForm.Designer.cs">
+      <DependentUpon>MDIAppInstanceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MDIBaseForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\MDIBaseForm.Designer.cs">
+      <DependentUpon>MDIBaseForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MDIDebugForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\MDIDebugForm.Designer.cs">
+      <DependentUpon>MDIDebugForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MDIDeviceForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\MDIDeviceForm.Designer.cs">
+      <DependentUpon>MDIDeviceForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MDIInstanceListForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\MDIInstanceListForm.Designer.cs">
+      <DependentUpon>MDIInstanceListForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MDISelectAppForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\MDISelectAppForm.Designer.cs">
+      <DependentUpon>MDISelectAppForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\MDITextEditorForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\MDITextEditorForm.Designer.cs">
+      <DependentUpon>MDITextEditorForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\OptionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\OptionForm.Designer.cs">
+      <DependentUpon>OptionForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SubForms\VersionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SubForms\VersionForm.Designer.cs">
+      <DependentUpon>VersionForm.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="MainForm.ja.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.ja.resx" />
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SubForms\MDIAppInstanceForm.ja.resx">
+      <DependentUpon>MDIAppInstanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDIAppInstanceForm.resx">
+      <DependentUpon>MDIAppInstanceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDIBaseForm.ja.resx">
+      <DependentUpon>MDIBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDIBaseForm.resx">
+      <DependentUpon>MDIBaseForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDIDebugForm.resx">
+      <DependentUpon>MDIDebugForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDIDeviceForm.resx">
+      <DependentUpon>MDIDeviceForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDIInstanceListForm.ja.resx">
+      <DependentUpon>MDIInstanceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDIInstanceListForm.resx">
+      <DependentUpon>MDIInstanceListForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDISelectAppForm.ja.resx">
+      <DependentUpon>MDISelectAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDISelectAppForm.resx">
+      <DependentUpon>MDISelectAppForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\MDITextEditorForm.resx">
+      <DependentUpon>MDITextEditorForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\OptionForm.resx">
+      <DependentUpon>OptionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\VersionForm.ja.resx">
+      <DependentUpon>VersionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SubForms\VersionForm.resx">
+      <DependentUpon>VersionForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KobutanLib.COP\KobutanLib.COP.csproj">
+      <Project>{8d1ffd35-e666-4354-bbdc-57bc73253a49}</Project>
+      <Name>KobutanLib.COP</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KobutanLib.GameProgramming\KobutanLib.GameProgramming.csproj">
+      <Project>{2a9321ae-4e39-422c-b389-e9c8e38396cb}</Project>
+      <Name>KobutanLib.GameProgramming</Name>
+      <Private>True</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\KobutanLib.Scripting\KobutanLib.Scripting.csproj">
+      <Project>{8bd49f23-765a-4120-a52d-bbdcbb087af5}</Project>
+      <Name>KobutanLib.Scripting</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\KobutanLib\KobutanLib.csproj">
+      <Project>{b46c0103-3317-4176-964e-85390bfb8c1e}</Project>
+      <Name>KobutanLib</Name>
+      <Private>True</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="SubForms\OptionScreens\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Kobutan.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Logo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KobutanApp.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KobutanApp_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DeviceManager_S.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\DevicePrinter.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\dxdiag.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\KobutanApp.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Resources\ConfigImage.png" />
+    <Content Include="Resources\ConfigIcon.ico" />
+    <Content Include="Resources\GamepadIcon.ico" />
+    <Content Include="Resources\GamepadImage.png" />
+    <Content Include="Resources\OpenFileIcon.png" />
+    <Content Include="Resources\RedoIcon.png" />
+    <Content Include="Resources\SaveIcon.png" />
+    <Content Include="Resources\ServerIcon.ico" />
+    <Content Include="Resources\ServerImage.png" />
+    <Content Include="Resources\ConsoleIcon.ico" />
+    <Content Include="Resources\ConsoleImage.png" />
+    <Content Include="Resources\UndoIcon.png" />
+    <Content Include="Resources\WindowListIcon.ico" />
+    <Content Include="Resources\WindowListImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.6.1">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.6.1 %28x86 ?¨?a?N x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

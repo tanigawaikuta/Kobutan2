@@ -1,0 +1,21 @@
+﻿<?xml version='1.0' encoding='utf-8'?>
+<SettingsFile xmlns="http://schemas.microsoft.com/VisualStudio/2004/01/settings" CurrentProfile="(Default)" GeneratedClassNamespace="Kobutan.Properties" GeneratedClassName="Settings">
+  <Profiles />
+  <Settings>
+    <Setting Name="CultureInfo" Type="System.Globalization.CultureInfo" Scope="User">
+      <Value Profile="(Default)">ja</Value>
+    </Setting>
+    <Setting Name="AppFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Application\</Value>
+    </Setting>
+    <Setting Name="UserLibFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\UserLib\</Value>
+    </Setting>
+    <Setting Name="TempFolderPath" Type="System.String" Scope="User">
+      <Value Profile="(Default)">.\Temp\</Value>
+    </Setting>
+    <Setting Name="AutoDestroyInstanceFormFlag" Type="System.Boolean" Scope="User">
+      <Value Profile="(Default)">True</Value>
+    </Setting>
+  </Settings>
+</SettingsFile>

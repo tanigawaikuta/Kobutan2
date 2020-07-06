@@ -1,0 +1,199 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KobutanLib.GameProgramming</name>
+    </assembly>
+    <members>
+        <member name="T:KobutanLib.GameProgramming.GameApp">
+            <summary>
+            ゲームプログラミング授業用のアプリケーション。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GameApp.ColorSensor">
+            <summary>
+            カラーセンサ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GameApp.TCPCommunication">
+            <summary>
+            TCP通信。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GameApp.ColorSensorIP">
+            <summary>
+            カラーセンサのIPアドレス。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GameApp.TCPCommunicationIP">
+            <summary>
+            TCP通信のIPアドレス。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.#ctor(KobutanLib.Management.KobutanSystem,KobutanLib.Robots.RobotController)">
+            <summary>
+            GameApp のインスタンス化。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+            <param name="robot">ロボット操作のためのオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.OnAppStarting(System.EventArgs)">
+            <summary>
+            アプリケーション開始時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.OnAppInitialized(System.EventArgs)">
+            <summary>
+            アプリケーション初期化後のアクション。
+            </summary>
+            <param name="e">イベント引数C:\Users\Longo\Desktop\Kobutan2_DEMO\Source\Kobutan\KobutanLib\KobuTimer.cs。</param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.OnAppStopping(System.EventArgs)">
+            <summary>
+            アプリケーション停止時のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.OnAppFinalized(System.EventArgs)">
+            <summary>
+            アプリケーション終了処理後のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.InitializeApp">
+            <summary>
+            アプリケーションの初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.FinalizeApp">
+            <summary>
+            アプリケーションの終了処理。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.SendTCPMessage(System.String)">
+            <summary>
+            TCPでメッセージを送信。
+            </summary>
+            <param name="message">メッセージ。</param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.TCPCommunication_DataReceived(System.Object,KobutanLib.Communication.DataReceivedEventArgs)">
+            <summary>
+            TCPでデータ受信した時の処理。
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GameApp.Dispose(System.Boolean)">
+            <summary>
+            使用中のリソースを解放する。
+            </summary>
+            <param name="disposing">マネージリソースが破棄される場合 true、破棄されない場合は false。</param>
+        </member>
+        <member name="T:KobutanLib.GameProgramming.GRColorSensor">
+            <summary>
+            GR-PEACHを使ったカラーセンサ。
+            wifiでUDPによってPCからデータを受信する。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.GameProgramming.GRColorSensor._UDPCommunication">
+            <summary>UDP通信。</summary>
+        </member>
+        <member name="F:KobutanLib.GameProgramming.GRColorSensor._Serializer">
+            <summary>Jsonシリアライザ。</summary>
+        </member>
+        <member name="F:KobutanLib.GameProgramming.GRColorSensor._SensorData">
+            <summary>センサデータ。</summary>
+        </member>
+        <member name="F:KobutanLib.GameProgramming.GRColorSensor._ReceivingData">
+            <summary>受け取るデータ。</summary>
+        </member>
+        <member name="F:KobutanLib.GameProgramming.GRColorSensor._ReceivedData">
+            <summary>受け取ったデータ。</summary>
+        </member>
+        <member name="F:KobutanLib.GameProgramming.GRColorSensor._IndexOfReceivedData">
+            <summary>受け取ったデータのインデックス。</summary>
+        </member>
+        <member name="F:KobutanLib.GameProgramming.GRColorSensor._ReceivedState">
+            <summary>読み取りの進み具合。</summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.Type">
+            <summary>
+            センサの種類。カラーセンサは1。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.Color">
+            <summary>
+            色。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.Red">
+            <summary>
+            赤の値。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.Green">
+            <summary>
+            緑の値。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.Blue">
+            <summary>
+            青の値。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GRColorSensor.#ctor(System.String,System.Int32)">
+            <summary>
+            GRColorSensor のコンストラクタ。
+            </summary>
+            <param name="hostName">ホスト名。</param>
+            <param name="sendPort">送信用のポート番号。</param>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GRColorSensor.InitializeSensor">
+            <summary>
+            センサの初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GRColorSensor.FinalizeSensor">
+            <summary>
+            センサの終了処理。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.GameProgramming.GRColorSensor._UDPCommunication_DataReceived(System.Object,KobutanLib.Communication.DataReceivedEventArgs)">
+            <summary>
+            データ受信時に実行されるイベントハンドラ。
+            </summary>
+            <param name="sender">イベント送信元。</param>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="T:KobutanLib.GameProgramming.GRColorSensor.SensorData">
+            <summary>
+            センサデータ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.SensorData.Type">
+            <summary>
+            センサの種類。カラーセンサは1。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.SensorData.Color">
+            <summary>
+            色。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.SensorData.Red">
+            <summary>
+            赤の値。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.SensorData.Green">
+            <summary>
+            緑の値。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.GameProgramming.GRColorSensor.SensorData.Blue">
+            <summary>
+            青の値。
+            </summary>
+        </member>
+    </members>
+</doc>

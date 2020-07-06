@@ -1,0 +1,537 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<root>
+  <!-- 
+    Microsoft ResX Schema 
+    
+    Version 2.0
+    
+    The primary goals of this format is to allow a simple XML format 
+    that is mostly human readable. The generation and parsing of the 
+    various data types are done through the TypeConverter classes 
+    associated with the data types.
+    
+    Example:
+    
+    ... ado.net/XML headers & schema ...
+    <resheader name="resmimetype">text/microsoft-resx</resheader>
+    <resheader name="version">2.0</resheader>
+    <resheader name="reader">System.Resources.ResXResourceReader, System.Windows.Forms, ...</resheader>
+    <resheader name="writer">System.Resources.ResXResourceWriter, System.Windows.Forms, ...</resheader>
+    <data name="Name1"><value>this is my long string</value><comment>this is a comment</comment></data>
+    <data name="Color1" type="System.Drawing.Color, System.Drawing">Blue</data>
+    <data name="Bitmap1" mimetype="application/x-microsoft.net.object.binary.base64">
+        <value>[base64 mime encoded serialized .NET Framework object]</value>
+    </data>
+    <data name="Icon1" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
+        <value>[base64 mime encoded string representing a byte array form of the .NET Framework object]</value>
+        <comment>This is a comment</comment>
+    </data>
+                
+    There are any number of "resheader" rows that contain simple 
+    name/value pairs.
+    
+    Each data row contains a name, and value. The row also contains a 
+    type or mimetype. Type corresponds to a .NET class that support 
+    text/value conversion through the TypeConverter architecture. 
+    Classes that don't support this are serialized and stored with the 
+    mimetype set.
+    
+    The mimetype is used for serialized objects, and tells the 
+    ResXResourceReader how to depersist the object. This is currently not 
+    extensible. For a given mimetype the value must be set accordingly:
+    
+    Note - application/x-microsoft.net.object.binary.base64 is the format 
+    that the ResXResourceWriter will generate, however the reader can 
+    read any of the formats listed below.
+    
+    mimetype: application/x-microsoft.net.object.binary.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Binary.BinaryFormatter
+            : and then encoded with base64 encoding.
+    
+    mimetype: application/x-microsoft.net.object.soap.base64
+    value   : The object must be serialized with 
+            : System.Runtime.Serialization.Formatters.Soap.SoapFormatter
+            : and then encoded with base64 encoding.
+
+    mimetype: application/x-microsoft.net.object.bytearray.base64
+    value   : The object must be serialized into a byte array 
+            : using a System.ComponentModel.TypeConverter
+            : and then encoded with base64 encoding.
+    -->
+  <xsd:schema id="root" xmlns="" xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata">
+    <xsd:import namespace="http://www.w3.org/XML/1998/namespace" />
+    <xsd:element name="root" msdata:IsDataSet="true">
+      <xsd:complexType>
+        <xsd:choice maxOccurs="unbounded">
+          <xsd:element name="metadata">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" />
+              </xsd:sequence>
+              <xsd:attribute name="name" use="required" type="xsd:string" />
+              <xsd:attribute name="type" type="xsd:string" />
+              <xsd:attribute name="mimetype" type="xsd:string" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="assembly">
+            <xsd:complexType>
+              <xsd:attribute name="alias" type="xsd:string" />
+              <xsd:attribute name="name" type="xsd:string" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="data">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+                <xsd:element name="comment" type="xsd:string" minOccurs="0" msdata:Ordinal="2" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" msdata:Ordinal="1" />
+              <xsd:attribute name="type" type="xsd:string" msdata:Ordinal="3" />
+              <xsd:attribute name="mimetype" type="xsd:string" msdata:Ordinal="4" />
+              <xsd:attribute ref="xml:space" />
+            </xsd:complexType>
+          </xsd:element>
+          <xsd:element name="resheader">
+            <xsd:complexType>
+              <xsd:sequence>
+                <xsd:element name="value" type="xsd:string" minOccurs="0" msdata:Ordinal="1" />
+              </xsd:sequence>
+              <xsd:attribute name="name" type="xsd:string" use="required" />
+            </xsd:complexType>
+          </xsd:element>
+        </xsd:choice>
+      </xsd:complexType>
+    </xsd:element>
+  </xsd:schema>
+  <resheader name="resmimetype">
+    <value>text/microsoft-resx</value>
+  </resheader>
+  <resheader name="version">
+    <value>2.0</value>
+  </resheader>
+  <resheader name="reader">
+    <value>System.Resources.ResXResourceReader, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <resheader name="writer">
+    <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </resheader>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
+  <data name="_AppNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 14</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionLabel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_AppIconPictureBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.PictureBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_AppDescriptionTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 11, 7, 11</value>
+  </data>
+  <data name="&gt;&gt;_AppNameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_StartButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 55</value>
+  </data>
+  <assembly alias="mscorlib" name="mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
+  <data name="_AppNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionTextBox.Parent" xml:space="preserve">
+    <value>_InfomationPanel</value>
+  </data>
+  <data name="&gt;&gt;_BackPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_AppDescriptionTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 393</value>
+  </data>
+  <data name="_BackPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_AppNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 11</value>
+  </data>
+  <data name="&gt;&gt;_StartButton.Name" xml:space="preserve">
+    <value>_StartButton</value>
+  </data>
+  <data name="&gt;&gt;_InfomationPanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_InfomationPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_AppNameTextBox.ZOrder" xml:space="preserve">
+    <value>3</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;$this.Name" xml:space="preserve">
+    <value>ExecutionScreen</value>
+  </data>
+  <data name="_AppNamePanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_AppNameAndIconPanel.Parent" xml:space="preserve">
+    <value>_InfomationPanel</value>
+  </data>
+  <data name="_StartButton.Text" xml:space="preserve">
+    <value>Start</value>
+  </data>
+  <data name="&gt;&gt;_AppNamePanel.Name" xml:space="preserve">
+    <value>_AppNamePanel</value>
+  </data>
+  <data name="_ButtonPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Bottom</value>
+  </data>
+  <data name="_ButtonPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 76</value>
+  </data>
+  <data name="_AppDescriptionLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 118</value>
+  </data>
+  <data name="_InstanceNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 39</value>
+  </data>
+  <data name="&gt;&gt;_BackPanel.Name" xml:space="preserve">
+    <value>_BackPanel</value>
+  </data>
+  <data name="_BackPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 630</value>
+  </data>
+  <data name="_InfomationPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 554</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>192, 192</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionTextBox.Name" xml:space="preserve">
+    <value>_AppDescriptionTextBox</value>
+  </data>
+  <data name="&gt;&gt;_StartButton.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_StartButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameLabel.Parent" xml:space="preserve">
+    <value>_AppNamePanel</value>
+  </data>
+  <data name="_AppIconPictureBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Right</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_StopButton.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_InstanceNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>179, 32</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_ButtonPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="_AppIconPictureBox.SizeMode" type="System.Windows.Forms.PictureBoxSizeMode, System.Windows.Forms">
+    <value>Zoom</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionLabel.Name" xml:space="preserve">
+    <value>_AppDescriptionLabel</value>
+  </data>
+  <data name="_AppDescriptionTextBox.Multiline" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameTextBox.ZOrder" xml:space="preserve">
+    <value>4</value>
+  </data>
+  <data name="_AppIconPictureBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>161, 161</value>
+  </data>
+  <data name="&gt;&gt;_AppNameLabel.Name" xml:space="preserve">
+    <value>_AppNameLabel</value>
+  </data>
+  <data name="_AppNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_AppNameTextBox.Parent" xml:space="preserve">
+    <value>_AppNamePanel</value>
+  </data>
+  <data name="&gt;&gt;_ButtonPanel.Name" xml:space="preserve">
+    <value>_ButtonPanel</value>
+  </data>
+  <data name="&gt;&gt;_AppNamePanel.Parent" xml:space="preserve">
+    <value>_AppNameAndIconPanel</value>
+  </data>
+  <data name="&gt;&gt;_BackPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="_InstanceNameTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 11, 7, 11</value>
+  </data>
+  <data name="_AppIconPictureBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="&gt;&gt;_ButtonPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_AppDescriptionTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 161</value>
+  </data>
+  <data name="_AppDescriptionLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>12</value>
+  </data>
+  <data name="_StartButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="_AppDescriptionTextBox.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;_BackPanel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="_AppDescriptionLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_AppIconPictureBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>461, 0</value>
+  </data>
+  <data name="_StopButton.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>3, 4, 3, 4</value>
+  </data>
+  <data name="_AppNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>10</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameTextBox.Name" xml:space="preserve">
+    <value>_InstanceNameTextBox</value>
+  </data>
+  <data name="_AppNamePanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionTextBox.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_InstanceNameTextBox.Location" type="System.Drawing.Point, System.Drawing">
+    <value>220, 67</value>
+  </data>
+  <data name="&gt;&gt;_AppNameLabel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_AppNameAndIconPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Top</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameLabel.ZOrder" xml:space="preserve">
+    <value>2</value>
+  </data>
+  <data name="&gt;&gt;_ButtonPanel.Parent" xml:space="preserve">
+    <value>$this</value>
+  </data>
+  <data name="&gt;&gt;_StartButton.Parent" xml:space="preserve">
+    <value>_ButtonPanel</value>
+  </data>
+  <data name="_StartButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>361, 9</value>
+  </data>
+  <data name="_InfomationPanel.AutoScrollMinSize" type="System.Drawing.Size, System.Drawing">
+    <value>150, 0</value>
+  </data>
+  <data name="_AppNamePanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>461, 161</value>
+  </data>
+  <data name="_AppDescriptionTextBox.ScrollBars" type="System.Windows.Forms.ScrollBars, System.Windows.Forms">
+    <value>Vertical</value>
+  </data>
+  <data name="_AppNameLabel.Text" xml:space="preserve">
+    <value>Application Name:</value>
+  </data>
+  <data name="_AppDescriptionLabel.Text" xml:space="preserve">
+    <value>Description:</value>
+  </data>
+  <data name="&gt;&gt;_AppIconPictureBox.Parent" xml:space="preserve">
+    <value>_AppNameAndIconPanel</value>
+  </data>
+  <data name="_AppNameAndIconPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;_InfomationPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_AppNameTextBox.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 11, 7, 11</value>
+  </data>
+  <data name="&gt;&gt;_AppIconPictureBox.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_AppNameAndIconPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_InstanceNameLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 0, 7, 0</value>
+  </data>
+  <data name="&gt;&gt;_ButtonPanel.ZOrder" xml:space="preserve">
+    <value>1</value>
+  </data>
+  <data name="_InfomationPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>2</value>
+  </data>
+  <data name="_InfomationPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="_AppNameTextBox.Size" type="System.Drawing.Size, System.Drawing">
+    <value>231, 39</value>
+  </data>
+  <data name="_InfomationPanel.Dock" type="System.Windows.Forms.DockStyle, System.Windows.Forms">
+    <value>Fill</value>
+  </data>
+  <data name="_InstanceNameTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;_AppNamePanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_BackPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>6</value>
+  </data>
+  <data name="_InstanceNameTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="_AppIconPictureBox.TabIndex" type="System.Int32, mscorlib">
+    <value>13</value>
+  </data>
+  <data name="_AppNamePanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;_StartButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_StopButton.Text" xml:space="preserve">
+    <value>Stop</value>
+  </data>
+  <data name="_AppNameLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 0, 7, 0</value>
+  </data>
+  <data name="_AppNameAndIconPanel.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_AppDescriptionLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>141, 32</value>
+  </data>
+  <data name="_InstanceNameLabel.Text" xml:space="preserve">
+    <value>Instance Name:</value>
+  </data>
+  <data name="&gt;&gt;_StopButton.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Button, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_AppDescriptionTextBox.MaxLength" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="_AppDescriptionTextBox.TabIndex" type="System.Int32, mscorlib">
+    <value>1</value>
+  </data>
+  <data name="&gt;&gt;_StopButton.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_AppNameAndIconPanel.Name" xml:space="preserve">
+    <value>_AppNameAndIconPanel</value>
+  </data>
+  <data name="$this.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 630</value>
+  </data>
+  <data name="_InfomationPanel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 11, 7, 11</value>
+  </data>
+  <data name="&gt;&gt;_AppNameTextBox.Name" xml:space="preserve">
+    <value>_AppNameTextBox</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameTextBox.Parent" xml:space="preserve">
+    <value>_AppNamePanel</value>
+  </data>
+  <data name="_ButtonPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 554</value>
+  </data>
+  <data name="_InfomationPanel.AutoScroll" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionTextBox.Type" xml:space="preserve">
+    <value>System.Windows.Forms.TextBox, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_AppNameLabel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>211, 32</value>
+  </data>
+  <data name="_StopButton.Size" type="System.Drawing.Size, System.Drawing">
+    <value>120, 55</value>
+  </data>
+  <data name="_InstanceNameLabel.TabIndex" type="System.Int32, mscorlib">
+    <value>11</value>
+  </data>
+  <data name="&gt;&gt;_AppNameLabel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Label, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_StartButton.TabIndex" type="System.Int32, mscorlib">
+    <value>0</value>
+  </data>
+  <data name="&gt;&gt;_AppNamePanel.ZOrder" xml:space="preserve">
+    <value>0</value>
+  </data>
+  <data name="_InstanceNameLabel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>7, 70</value>
+  </data>
+  <data name="_AppDescriptionLabel.Margin" type="System.Windows.Forms.Padding, System.Windows.Forms">
+    <value>7, 0, 7, 0</value>
+  </data>
+  <data name="_StopButton.Location" type="System.Drawing.Point, System.Drawing">
+    <value>496, 9</value>
+  </data>
+  <data name="&gt;&gt;_AppIconPictureBox.Name" xml:space="preserve">
+    <value>_AppIconPictureBox</value>
+  </data>
+  <data name="&gt;&gt;_AppDescriptionLabel.Parent" xml:space="preserve">
+    <value>_AppNamePanel</value>
+  </data>
+  <data name="&gt;&gt;_AppNameLabel.Parent" xml:space="preserve">
+    <value>_AppNamePanel</value>
+  </data>
+  <data name="&gt;&gt;_InstanceNameLabel.Name" xml:space="preserve">
+    <value>_InstanceNameLabel</value>
+  </data>
+  <data name="&gt;&gt;$this.Type" xml:space="preserve">
+    <value>KobutanLib.Screens.BaseScreen, KobutanLib, Version=2.1.7149.28459, Culture=neutral, PublicKeyToken=null</value>
+  </data>
+  <data name="_AppNameTextBox.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Top, Left, Right</value>
+  </data>
+  <data name="&gt;&gt;_InfomationPanel.Name" xml:space="preserve">
+    <value>_InfomationPanel</value>
+  </data>
+  <data name="_StopButton.Anchor" type="System.Windows.Forms.AnchorStyles, System.Windows.Forms">
+    <value>Bottom, Right</value>
+  </data>
+  <data name="&gt;&gt;_StopButton.Parent" xml:space="preserve">
+    <value>_ButtonPanel</value>
+  </data>
+  <data name="&gt;&gt;_StopButton.Name" xml:space="preserve">
+    <value>_StopButton</value>
+  </data>
+  <data name="_InstanceNameLabel.AutoSize" type="System.Boolean, mscorlib">
+    <value>True</value>
+  </data>
+  <data name="_BackPanel.Location" type="System.Drawing.Point, System.Drawing">
+    <value>0, 0</value>
+  </data>
+  <data name="&gt;&gt;_AppNameAndIconPanel.Type" xml:space="preserve">
+    <value>System.Windows.Forms.Panel, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="_AppNameAndIconPanel.Size" type="System.Drawing.Size, System.Drawing">
+    <value>622, 161</value>
+  </data>
+  <metadata name="$this.Localizable" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
+</root>

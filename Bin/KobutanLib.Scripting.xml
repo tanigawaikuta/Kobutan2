@@ -1,0 +1,224 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>KobutanLib.Scripting</name>
+    </assembly>
+    <members>
+        <member name="T:KobutanLib.Scripting.Management.CSScriptManager">
+            <summary>
+            C#スクリプトを扱うマネージャ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Scripting.Management.CSScriptManager._Options">
+            <summary>
+            スクリプトオプション。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Scripting.Management.CSScriptManager._MyAssembly">
+            <summary>
+            自身のアセンブリ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Scripting.Management.CSScriptManager._ScriptState">
+            <summary>
+            スクリプトの実行状態。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Management.CSScriptManager.ImportingAssemblys">
+            <summary>
+            読み込むアセンブリ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Management.CSScriptManager.ImportingNameSpaces">
+            <summary>
+            読み込む名前空間。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Management.CSScriptManager.FilePath">
+            <summary>
+            スクリプトのファイルパス。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.Management.CSScriptManager.#ctor(KobutanLib.KobutanApp)">
+            <summary>
+            スクリプトマネージャ。
+            </summary>
+            <param name="app">アプリケーション。</param>
+        </member>
+        <member name="M:KobutanLib.Scripting.Management.CSScriptManager.Initialize">
+            <summary>
+            初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.Management.CSScriptManager.RunScript(System.String)">
+            <summary>
+            与えられたスクリプトを実行する。
+            </summary>
+            <param name="scriptText">スクリプトテキスト。</param>
+        </member>
+        <member name="T:KobutanLib.Scripting.Management.ScriptManager">
+            <summary>
+            スクリプトマネージャ。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Scripting.Management.ScriptManager._App">
+            <summary>
+            アプリケーション。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.Management.ScriptManager.#ctor(KobutanLib.KobutanApp)">
+            <summary>
+            スクリプトマネージャ。
+            </summary>
+            <param name="app">アプリケーション。</param>
+        </member>
+        <member name="M:KobutanLib.Scripting.Management.ScriptManager.Initialize">
+            <summary>
+            初期化。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.Management.ScriptManager.RunScript(System.String)">
+            <summary>
+            与えられたスクリプトを実行する。
+            </summary>
+            <param name="script">スクリプト。</param>
+        </member>
+        <member name="T:KobutanLib.Scripting.Properties.Resources">
+            <summary>
+              ローカライズされた文字列などを検索するための、厳密に型指定されたリソース クラスです。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Properties.Resources.ResourceManager">
+            <summary>
+              このクラスで使用されているキャッシュされた ResourceManager インスタンスを返します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Properties.Resources.Culture">
+            <summary>
+              すべてについて、現在のスレッドの CurrentUICulture プロパティをオーバーライドします
+              現在のスレッドの CurrentUICulture プロパティをオーバーライドします。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Properties.Resources.ApplyScript">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Properties.Resources.OpenFileIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Properties.Resources.RedoIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Properties.Resources.SaveIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.Properties.Resources.UndoIcon">
+            <summary>
+              型 System.Drawing.Bitmap のローカライズされたリソースを検索します。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Scripting.Screens.ScriptScreen">
+            <summary>
+            スクリプト編集画面。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.Screens.ScriptScreen.#ctor">
+            <summary>
+            スクリプト編集画面。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.Screens.ScriptScreen.#ctor(KobutanLib.KobutanApp)">
+            <summary>
+            スクリプト編集画面。
+            </summary>
+            <param name="app">アプリケーションへの参照。</param>
+        </member>
+        <member name="M:KobutanLib.Scripting.Screens.ScriptScreen.FinalizeScreen">
+            <summary>
+            画面を閉じる際に実行する終了処理。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Scripting.Screens.ScriptScreen.components">
+            <summary> 
+            必要なデザイナー変数です。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.Screens.ScriptScreen.Dispose(System.Boolean)">
+            <summary> 
+            使用中のリソースをすべてクリーンアップします。
+            </summary>
+            <param name="disposing">マネージド リソースを破棄する場合は true を指定し、その他の場合は false を指定します。</param>
+        </member>
+        <member name="M:KobutanLib.Scripting.Screens.ScriptScreen.InitializeComponent">
+            <summary> 
+            デザイナー サポートに必要なメソッドです。このメソッドの内容を 
+            コード エディターで変更しないでください。
+            </summary>
+        </member>
+        <member name="T:KobutanLib.Scripting.ScriptApp">
+            <summary>
+            スクリプトによって動作する こぶたんアプリケーションを実現するクラス。
+            </summary>
+        </member>
+        <member name="F:KobutanLib.Scripting.ScriptApp._ScriptManager">
+            <summary>
+            スクリプトマネージャ。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.ScriptApp.MainLoopScript">
+            <summary>
+            メインループのスクリプト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.ScriptApp.InitializeAppScript">
+            <summary>
+            初期化のスクリプト。
+            </summary>
+        </member>
+        <member name="P:KobutanLib.Scripting.ScriptApp.FinalizeAppScript">
+            <summary>
+            終了処理のスクリプト。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.ScriptApp.#ctor(KobutanLib.Management.KobutanSystem)">
+            <summary>
+            スクリプトによって動作する こぶたんアプリケーションを実現するクラス。
+            </summary>
+            <param name="kobutanSystem">こぶたんの各種機能にアクセスするためのインターフェースをまとめたオブジェクト。</param>
+        </member>
+        <member name="M:KobutanLib.Scripting.ScriptApp.SetScriptManager(KobutanLib.Scripting.Management.ScriptManager)">
+            <summary>
+            スクリプトマネージャのセット。
+            </summary>
+            <param name="scriptManager">スクリプトマネージャ。</param>
+        </member>
+        <member name="M:KobutanLib.Scripting.ScriptApp.OnAppStarting(System.EventArgs)">
+            <summary>
+            アプリケーション開始直前のアクション。
+            </summary>
+            <param name="e">イベント引数。</param>
+        </member>
+        <member name="M:KobutanLib.Scripting.ScriptApp.InitializeApp">
+            <summary>
+            アプリケーション初期化。初期化スクリプトを実行する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.ScriptApp.MainLoop">
+            <summary>
+            メインループ。メインループスクリプトを実行する。
+            </summary>
+        </member>
+        <member name="M:KobutanLib.Scripting.ScriptApp.FinalizeApp">
+            <summary>
+            アプリケーション終了処理。終了処理スクリプトを実行する。
+            </summary>
+        </member>
+    </members>
+</doc>

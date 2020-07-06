@@ -1,0 +1,95 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{74A3EC61-9B49-4C18-86CA-A6C10C323F44}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DebugApp</RootNamespace>
+    <AssemblyName>DebugApp_ZZKobutanCASMN</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <Deterministic>false</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>..\..\..\Test\TestSpace\Application\</OutputPath>
+    <IntermediateOutputPath>..\..\..\Obj\Kobutan\DebugApp\Debug\</IntermediateOutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>..\..\..\Test\TestSpace\Application\DebugApp_ZZKobutanCASMN.xml</DocumentationFile>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>none</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>..\..\..\Bin\Application\</OutputPath>
+    <IntermediateOutputPath>..\..\..\Obj\Kobutan\DebugApp\Release\</IntermediateOutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <DocumentationFile>
+    </DocumentationFile>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DebugApp.cs" />
+    <Compile Include="DebugApp2.cs" />
+    <Compile Include="DebugIconRegistration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\KobutanLib.COP\KobutanLib.COP.csproj">
+      <Project>{8d1ffd35-e666-4354-bbdc-57bc73253a49}</Project>
+      <Name>KobutanLib.COP</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\KobutanLib.GameProgramming\KobutanLib.GameProgramming.csproj">
+      <Project>{2a9321ae-4e39-422c-b389-e9c8e38396cb}</Project>
+      <Name>KobutanLib.GameProgramming</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\KobutanLib.Scripting\KobutanLib.Scripting.csproj">
+      <Project>{8bd49f23-765a-4120-a52d-bbdcbb087af5}</Project>
+      <Name>KobutanLib.Scripting</Name>
+      <Private>False</Private>
+    </ProjectReference>
+    <ProjectReference Include="..\KobutanLib\KobutanLib.csproj">
+      <Project>{b46c0103-3317-4176-964e-85390bfb8c1e}</Project>
+      <Name>KobutanLib</Name>
+      <Private>False</Private>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <Content Include="Resources\DebugAppIcon.ico" />
+    <Content Include="Resources\DebugAppImage.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

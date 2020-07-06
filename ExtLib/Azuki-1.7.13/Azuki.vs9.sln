@@ -1,0 +1,38 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29411.108
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Azuki.vs9", "Azuki\Azuki.vs9.csproj", "{9910474A-AA51-4DFF-8499-CB661216B200}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ann.vs9", "Ann\Ann.vs9.csproj", "{0A4BB220-4224-4879-8146-3230357CC320}"
+	ProjectSection(ProjectDependencies) = postProject
+		{9910474A-AA51-4DFF-8499-CB661216B200} = {9910474A-AA51-4DFF-8499-CB661216B200}
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9910474A-AA51-4DFF-8499-CB661216B200}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9910474A-AA51-4DFF-8499-CB661216B200}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9910474A-AA51-4DFF-8499-CB661216B200}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9910474A-AA51-4DFF-8499-CB661216B200}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0A4BB220-4224-4879-8146-3230357CC320}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0A4BB220-4224-4879-8146-3230357CC320}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0A4BB220-4224-4879-8146-3230357CC320}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0A4BB220-4224-4879-8146-3230357CC320}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {C8C50E73-2F99-4F48-8745-F71DFEEE1570}
+	EndGlobalSection
+	GlobalSection(SubversionScc) = preSolution
+		Svn-Managed = True
+		Manager = AnkhSVN - Subversion Support for Visual Studio
+	EndGlobalSection
+EndGlobal
